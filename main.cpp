@@ -21,7 +21,6 @@ std::stack<int> statementStack();
 std::stack<int> clauseStack();
 
 
-
 int main(){
-
+    
 }
