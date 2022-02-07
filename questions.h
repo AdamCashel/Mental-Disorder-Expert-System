@@ -8,4 +8,4 @@ enum chains {
     BACKWARD
 };
 
-extern void initialize_questions(chains, std::vector<std::string> &);
+extern void initialize_questions(int, std::vector<std::string> &);
