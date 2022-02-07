@@ -1,0 +1,7 @@
+Patient has been diagnosed with a mental disorder
+What kind of disorder was diagnosed?
+Does the patient have at least 3 physical or cognitive symptoms?
+How long has the patient had disturbances?
+Does the patient have depressive or anxiety symptoms?
+How many manic Episodes did the patient have?
+Has symptoms been present longer than 2 years?

@@ -1,0 +1,35 @@
+Does the patient have or show symptoms?
+Does the patient have Suicidal ideation?
+Does the patient have a feeling of sadness?
+Does the patient have impaired speech?
+Does the patient have other patient mental health problems, depression, anxiety, 
+Does the patient have periods of manic moods?
+Does the patient have inability to relax?
+Does the patient have extremely disorganized/abnormal motor behavior
+Does the patient have significant stress in relationships, work, other areas of life
+Does the patient have ability to cope with emotional & professional stress
+Does the patient have fatigue?
+Has the patient experienced a manic episode?
+Does the patient have a fear of making the wrong decision?
+Does the patient have bizarre behavior?
+Does the patient diminished emotional expression?
+Does the patient have sense of being detached from self & emotions
+Does the patient have sleep trouble?
+Does the patient feel hopeless?
+Does the patient have unusual talkativeness?
+Does the patient show physical signs of distress? 
+Has the patient expereinced Hallucinations?
+Does the patient have Delusions?
+Does the patient have Perception of people & things around them as distorted/unreal
+Does the patient have a blurred sense of identity?
+Does the patient have Low self-esteem or self-criticism
+Does the patient have trouble concentrating?
+Has the patient lost pleasure in almost all normal activities?
+Does the patient have abnormally increased energy?
+Does the patient have persistent worrying or anxiety out of proportion to the impact of the event?
+Does the patient have manic mood?
+Does the patient have memory loss(amnesia)?
+How long has the patient have symptoms?
+Has the patient experienced 1 manic episode followed by hypomanic or depressive episodes
+Does the patient have fear of losing control in public?
+How long has the patient expereinced distirbances?

@@ -1,2 +1,2 @@
 #pragma once
-#include "questions.h"
+#include "dialogue.h"

@@ -1,0 +1,11 @@
+No treatment for the patient
+Patient's Treatment is Antidepressants, SSRIs, SNRIs, Buspirone, Benzodiazepines, CBT, Group Councseling
+Patient's Treatment is SSRIs, SNRIs, Benzodiazepines, Antidepressants, CPT, Eye movement desensitization and reprocessing
+Patient's Treatment is Antipsychotics, CBT or Family therapy, Hospitalization
+Patient's Treatment is Antipsychotics, mood stabilizers, antidepressants, CBT, family therapy, group therapy
+Treat Patient with CBT, DBT, EMDR psychotherapy
+Treat Patient with Medication to treat depressive and or anxiety with CBT, DBT, EMDR psychotherapy
+Treatment for Patient is Day Treatment programs, Hospitalization,
+Treatment for Patient is Cognitive Behavioral Therapy,
+Patient's Treatment is SSRI, TCA, SNRI medications, CBT, Family therapy, group counseling
+Patient's Treatment is antidepressants, MAOIs
