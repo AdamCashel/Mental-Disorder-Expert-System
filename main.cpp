@@ -1,5 +1,7 @@
 #include <iostream>
 #include <stack>
+
+#include "initialize.h"
 #include "interface.h"
 
 // conclusion list
@@ -20,7 +22,4 @@ std::stack<int> statementStack();
 // clause stack
 std::stack<int> clauseStack();
 
-
-int main(){
-    
-}
+int main() {}
