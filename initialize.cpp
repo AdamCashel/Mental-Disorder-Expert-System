@@ -1,8 +1,9 @@
 #include "initialize.h"
 
-// starting index is 1
+// starting index is 1, so we add 1 to size
 const int CONCL_LIST_SIZE = 13 + 1;
 const int VAR_LIST_SIZE = 31 + 1;
+const int VAR_LIST_SIZE = 96 + 1;
 
 void init_concl_list(std::vector<std::string> &vector) {
     vector[1] = "DISORDER";
@@ -59,3 +60,5 @@ void init_var_list(std::vector<std::string> &vector) {
 
 // TODO:
 // create initialization function for conclusion variable list
+// we have a maximum of 8 variables in our if clauses
+// since we have 12 rules, with 8 variables each, the max length of our clause variable list is 96
