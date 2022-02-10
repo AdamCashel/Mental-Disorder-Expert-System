@@ -6,7 +6,7 @@ const int VAR_LIST_SIZE = 31 + 1;
 
 // we have a maximum of 8 variables in our if clauses
 // since we have 12 rules, with 8 variables each, the max length of our clause variable list is 96
-const int VAR_LIST_SIZE = 96 + 1;
+const int CLAUSE_VAR_LIST_SIZE = 96 + 1;
 
 void init_concl_list(std::vector<std::string> &vector) {
     vector[1] = "DISORDER";
