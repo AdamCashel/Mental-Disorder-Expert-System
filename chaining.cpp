@@ -5,20 +5,23 @@
 void instantiate(std::string var, std::vector<Variable> &varList, std::vector<int> &instList) {
     // look for variable in variable list
     int idx = -1;
-    for(int i = 1;i < var.size(); i++){
+    for(int i = 1; i < var.size(); i++){
         if(var == varList[i].get_name()){
-            idx = 1;
+            idx = i;
             break;
         }
     }
     
     if(idx == -1){
         std::cerr << "variable not found\n";
+        return;
     }
 
+    // if variable has already been instantiated, return
     if(instList[idx] == 1)
         return;
 
+    // instantiate variable
     instList[idx] = 1;
 
     if (varList[idx].get_type() == 1){
