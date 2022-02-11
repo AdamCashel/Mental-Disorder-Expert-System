@@ -11,4 +11,4 @@ extern void init_concl_list(std::vector<std::string> &);
 
 extern void init_var_list(std::vector<Variable> &);
 
-extern void init_concl_var_list(std::vector<Variable> &);
+extern void init_clause_var_list(std::vector<Variable> &);

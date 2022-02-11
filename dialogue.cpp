@@ -30,6 +30,8 @@ void initialize_questions(int chain, std::vector<std::string> &vector) {
     } else {
         std::cerr << "Invalid chain value" << std::endl;
     }
+
+    inputFile.close();
 }
 
 void initialize_responses(int chain, std::vector<std::string> &vector) {
@@ -55,4 +57,6 @@ void initialize_responses(int chain, std::vector<std::string> &vector) {
     } else {
         std::cerr << "Invalid chain value" << std::endl;
     }
+
+    inputFile.close();
 }

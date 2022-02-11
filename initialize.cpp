@@ -11,6 +11,7 @@ const int VAR_LIST_SIZE = 31 + 1;
 // the max length of our clause variable list is 153
 const int CLAUSE_VAR_LIST_SIZE = 153 + 1;
 
+// places the values below in the vector of strings passed
 void init_concl_list(std::vector<std::string> &vector) {
     vector[1] = "DISORDER";
     vector[2] = "QUALIFY";
@@ -27,6 +28,7 @@ void init_concl_list(std::vector<std::string> &vector) {
     vector[13] = "DISORDER";
 }
 
+// places the values below in the vector of type Variable
 // TODO:
 // review for abbreviations of variable names
 void init_var_list(std::vector<Variable> &vector) {
@@ -64,10 +66,13 @@ void init_var_list(std::vector<Variable> &vector) {
     vector[31].set_name("DELUSIONS");
 }
 
+// places the values below in the vector of type Variable
+// due to this list being so long, it as placed in a file and then read
+// to initialize the list
 // TODO:
 // create initialization function for conclusion variable list
 // need to specify types
-void init_concl_var_list(std::vector<Variable> &vector){
+void init_clause_var_list(std::vector<Variable> &vector){
     std::ifstream inputFile;
     std::string line;
 
@@ -76,4 +81,5 @@ void init_concl_var_list(std::vector<Variable> &vector){
         getline(inputFile, line);
         vector[i].set_name(line);
     }
+    inputFile.close();
 }

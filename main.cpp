@@ -30,7 +30,7 @@ int main() {
     // initialize and declare conclusion and variable list
     init_concl_list(conclusionList);
     init_var_list(varList);
-    init_concl_var_list(clauseVarList);
+    init_clause_var_list(clauseVarList);
 
     // display values for user to see
     std::cout << "CONCLUSION LIST\n";

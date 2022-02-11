@@ -1,6 +1,10 @@
 #pragma once
 #include <string>
 
+// Variable class
+// Used for variable and clause variable list
+// Can store the name of variable and a value of either type string or double
+// getters and setters to access values
 class Variable{
     private:
         std::string name;
