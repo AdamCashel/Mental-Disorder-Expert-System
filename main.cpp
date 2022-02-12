@@ -26,6 +26,25 @@ std::stack<int> statementStack();
 // clause stack
 std::stack<int> clauseStack();
 
+//Diagnose Mental Disorder Function (Backward Chaining)
+void diagnoseDisorder()
+{
+
+}
+
+//Treatment for Disorder Function (Forward Chaining)
+void disorderTreatment()
+{
+
+}
+
+//Asks user for the initial symptoms of patient
+void initialSymtoms()
+{
+
+}
+
+
 int main() {
     // initialize and declare conclusion and variable list
     init_concl_list(conclusionList);
@@ -45,4 +64,12 @@ int main() {
 
     std::cout << "CLAUSE VARIABLE LIST\n";
     print_list(clauseVarList);
-}
+
+    //Start getting symptoms from user
+
+
+    //After user has entered initial symptoms ask user questions and start diagnoseDisorder()
+    diagnoseDisorder();
+
+    //After getting mental disorder diagnoses call disorderTreatment()
+    disorderTreatment();
