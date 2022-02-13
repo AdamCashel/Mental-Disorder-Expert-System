@@ -18,7 +18,7 @@ Does the patient have sleep trouble?
 Does the patient feel hopeless?
 Does the patient have unusual talkativeness?
 Does the patient show physical signs of distress? 
-Has the patient expereinced Hallucinations?
+Has the patient experienced Hallucinations?
 Does the patient have Delusions?
 Does the patient have Perception of people & things around them as distorted/unreal
 Does the patient have a blurred sense of identity?
@@ -32,4 +32,4 @@ Does the patient have memory loss(amnesia)?
 How long has the patient have symptoms?
 Has the patient experienced 1 manic episode followed by hypomanic or depressive episodes
 Does the patient have fear of losing control in public?
-How long has the patient expereinced distirbances?
+How long has the patient experienced disturbances?
