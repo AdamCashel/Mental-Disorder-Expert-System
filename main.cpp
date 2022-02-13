@@ -66,14 +66,17 @@ void initialSymptoms()
     intro_directions();
     std::cout << "Do you have any symptoms of the patient? (y/n)" <<std::endl;
     getline(std::cin, user_answer);
-    if(user_answer == "y")
+    user_answer = to_upper_case(user_answer);
+    if(user_answer == "Y")
     {
         std::cout << "Enter symptoms of the patient already obtained. Press 's' to stop" << std::endl;
         getline(std::cin, user_answer);
+        user_answer = to_upper_case(user_answer);
         while(user_answer != "s")
         {
             std::cout << "Enter Patient Symptom" << std::endl;
             getline(std::cin, user_answer);
+            user_answer = to_upper_case(user_answer);
             bool found = false;
             int i = 0;
             while(!found && i < 33)

@@ -17,3 +17,11 @@ extern void intro_directions()
     std::cout << "-------------------Mental Health Disorder Diagnostic Tool-------------------" <<std::endl;
     std::cout << "Enter 'y' for yes, 'n' for no, or a number to answer questions" <<std::endl;
 }
+
+extern std::string to_upper_case(std::string stringTemp)
+{
+    for(int i = 0; i < stringTemp.length(); i++)
+    {
+        stringTemp[i] = toupper(stringTemp[i]);
+    }
+}
