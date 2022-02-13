@@ -83,3 +83,16 @@ void init_clause_var_list(std::vector<Variable> &vector){
     }
     inputFile.close();
 }
+
+//Formula used to get clause number output by rule number input (Backward Chaining)
+int clause_number_formula(int rule_numb)
+{
+    int clause_temp = ((10 *(rule_numb / 10)) - 1) + 1;
+    return clause_temp;
+}
+
+//Formula to get rule number output by clause number input (Forward Chaining)
+int rule_number_formula(int clause_numb)
+{
+    int rule_temp = ((clause_numb / 10) + 1) * 10;
+}
