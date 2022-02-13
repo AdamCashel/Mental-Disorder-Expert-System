@@ -65,15 +65,15 @@ void initialSymptoms()
     std::string user_answer = "";
     intro_directions();
     std::cout << "Do you have any symptoms of the patient? (y/n)" <<std::endl;
-    std::cin >> user_answer;
+    getline(std::cin, user_answer);
     if(user_answer == "y")
     {
         std::cout << "Enter symptoms of the patient already obtained. Press 's' to stop" << std::endl;
-        std::cin >> user_answer;
+        getline(std::cin, user_answer);
         while(user_answer != "s")
         {
             std::cout << "Enter Patient Symptom" << std::endl;
-            std::cin >> user_answer;
+            getline(std::cin, user_answer);
             bool found = false;
             int i = 0;
             while(!found && i < 33)
@@ -84,7 +84,7 @@ void initialSymptoms()
                     if(varList[i].get_type() == 2)
                     {
                          std::cout << "Enter Value for " << user_answer << std::endl;
-                         std::cin >> user_answer;
+                         getline(std::cin, user_answer);
                          varList[i].set_str_value(user_answer);
                     }
                 }
