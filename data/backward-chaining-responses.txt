@@ -6,5 +6,5 @@ Diagnose the patient with Dysthymia
 Diagnose the patient with Bipolar l Disorder
 Diagnose the patient Generalized Anxiety Disorder
 Diagnose the patient with Panic Disorder with Agoraphobia
-Diagnose the patient with Schophrenia
+Diagnose the patient with Schizophrenia
 Diagnose the patient with Schizoaffective
