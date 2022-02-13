@@ -4,11 +4,12 @@
 #include "initialize.h"
 #include "interface.h"
 #include "variable.h"
+#include "chaining.h"
 
 // the following lists are initialized to empty strings
 // in accordance to known max lengths for each list
 // conclusion list
-std::vector<std::string> conclusionList(CONCL_LIST_SIZE, "");
+std::vector<Variable> conclusionList(CONCL_LIST_SIZE, 0);
 
 // variable list
 std::vector<Variable> varList(VAR_LIST_SIZE, 0);
@@ -21,14 +22,34 @@ std::vector<Variable> clauseVarList(CLAUSE_VAR_LIST_SIZE, 0);
 std::vector<int> instantiatedList(VAR_LIST_SIZE, 0);
 
 // statement stack
-std::stack<int> statementStack();
+std::stack<int> statementStack;
 
 // clause stack
 std::stack<int> clauseStack;
 
+Variable var(0);
+
+
 //Diagnose Mental Disorder Function (Backward Chaining)
 void diagnoseDisorder()
-{
+{   
+    // INITIAL INPUT
+    // promt user for a conclusion to verify
+    std::cout << "Enter Conclusion: \n" << std::endl;
+    std::string conclusion; std::cin >> conclusion;
+
+    // check if conclusion is valid
+    int statementNum = determine_member_concl_list(conclusion, conclusionList);
+    
+    // if the index is not -1, then the clause was found and is valid
+    if(statementNum != -1){
+        // push the statement number (index) onto the statement stack
+        std::cout << "Conclusion found.\n";
+        statementStack.push(statementNum);
+        // push 1 onto the clause stack
+        // !!! STILL NEED TO FIND OUT WHY !!!
+        clauseStack.push(1);
+    }
 
 }
 
