@@ -15,7 +15,6 @@ const int CLAUSE_VAR_LIST_SIZE = 153 + 1;
 void init_concl_list(std::vector<Variable> &vector) {
     std::ifstream inputFile;
     std::string line;
-
     inputFile.open("./data/backward-chaining-conclusionlist.txt");
     for(int i = 1; i < CONCL_LIST_SIZE; i++){
         getline(inputFile, line);
@@ -32,7 +31,7 @@ void init_var_list(std::vector<Variable> &vector) {
     std::string line;
 
     inputFile.open("./data/backward-chaining-variablelist.txt");
-    for(int i = 1; i < CONCL_LIST_SIZE; i++){
+    for(int i = 1; i < VAR_LIST_SIZE; i++){
         getline(inputFile, line);
         vector[i].set_name(line);
     }
@@ -42,6 +41,7 @@ void init_var_list(std::vector<Variable> &vector) {
 // places the values below in the vector of type Variable
 // due to this list being so long, it as placed in a file and then read
 // to initialize the list
+
 // TODO:
 // create initialization function for conclusion variable list
 // need to specify types
