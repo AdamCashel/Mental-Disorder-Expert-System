@@ -30,5 +30,6 @@ class Variable{
         void set_type(int);
         void set_str_value(std::string);
         void set_num_value(double);
+        std::string Variable::get_name_value();
 
 };

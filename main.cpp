@@ -60,9 +60,32 @@ void disorderTreatment()
 }
 
 //Asks user for the initial symptoms of patient
-void initialSymtoms()
+void initialSymptoms()
 {
-
+    std::string user_answer = "";
+    intro_directions();
+    std::cout << "Do you have any symptoms of the patient? (y/n)" <<std::endl;
+    std::cin >> user_answer;
+    if(user_answer == "y")
+    {
+        std::cout << "Enter symptoms of the patient already obtained. Press 's' to stop" << std::endl;
+        std::cin >> user_answer;
+        while(user_answer != "s")
+        {
+            std::cout << "Enter Patient Symptom" << std::endl;
+            std::cin >> user_answer;
+            bool found = false;
+            int i = 0;
+            while(!found)
+            {
+                if(user_answer == varList[i].get_name_value())
+                {
+                    found = true;
+                    
+                }
+            }
+        }
+    }
 }
 
 
@@ -87,7 +110,7 @@ int main() {
     print_list(clauseVarList);
 
     //Start getting symptoms from user
-
+    initialSymptoms();
 
     //After user has entered initial symptoms ask user questions and start diagnoseDisorder()
     diagnoseDisorder();

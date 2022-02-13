@@ -5,3 +5,5 @@
 extern void print_list(std::vector<std::string>);
 
 extern void print_list(std::vector<Variable>);
+
+extern void intro_directions();

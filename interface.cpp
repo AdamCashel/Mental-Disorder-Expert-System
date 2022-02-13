@@ -11,3 +11,9 @@ void print_list(std::vector<Variable> vector){
         std::cout << x.get_name() << std::endl;
     }
 }
+
+extern void intro_directions()
+{
+    std::cout << "-------------------Mental Health Disorder Diagnostic Tool-------------------" <<std::endl;
+    std::cout << "Enter 'y' for yes, 'n' for no, or a number to answer questions" <<std::endl;
+}
