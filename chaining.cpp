@@ -1,6 +1,6 @@
-#include "chaining.h"
 #include <algorithm>
 #include <iostream>
+#include "chaining.h"
 
 // this function is an updated version of the one in the provides C program.
 // it checks to see if a variable has been instantiated (has been evaluated)
@@ -47,9 +47,9 @@ void instantiate(std::string var, std::vector<Variable> &varList, std::vector<in
 // updated version of fuction in the provided C program
 // searches for variable name in conclusion list
 // return index if found, -1 if not found
-int determine_member_concl_list(std::string name, std::vector<std::string> concl_list){
+int determine_member_concl_list(std::string name, std::vector<Variable> concl_list){
     for(int i = 1; i < concl_list.size(); i++){
-        if(name == concl_list[i])
+        if(name == concl_list[i].get_name())
             return i;
     }
     return -1;

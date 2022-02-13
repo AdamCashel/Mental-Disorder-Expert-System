@@ -5,4 +5,4 @@
 
 extern void instantiate(std::string, std::vector<Variable> &, std::vector<int> &);
 
-extern int determine_member_concl_list(std::string, std::vector<std::string>);
+extern int determine_member_concl_list(std::string, std::vector<Variable>);
