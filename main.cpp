@@ -24,7 +24,7 @@ std::vector<int> instantiatedList(VAR_LIST_SIZE, 0);
 std::stack<int> statementStack();
 
 // clause stack
-std::stack<int> clauseStack();
+std::stack<int> clauseStack;
 
 //Diagnose Mental Disorder Function (Backward Chaining)
 void diagnoseDisorder()
@@ -34,6 +34,12 @@ void diagnoseDisorder()
 
 //Treatment for Disorder Function (Forward Chaining)
 void disorderTreatment()
+{
+
+}
+
+//Asks user for the initial symptoms of patient
+void initialSymtoms()
 {
 
 }
@@ -59,8 +65,14 @@ int main() {
     std::cout << "CLAUSE VARIABLE LIST\n";
     print_list(clauseVarList);
 
+    //Start getting symptoms from user
+
+
     //After user has entered initial symptoms ask user questions and start diagnoseDisorder()
     diagnoseDisorder();
 
     //After getting mental disorder diagnoses call disorderTreatment()
     disorderTreatment();
+
+    
+}
