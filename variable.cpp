@@ -11,6 +11,10 @@ void Variable::set_name(std::string name){
     this->name = name;
 }
 
+void Variable::set_type(int type){
+    this->type = type;
+}
+
 void Variable::set_str_value(std::string value){
     this->str_value = value;
 }

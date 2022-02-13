@@ -10,6 +10,7 @@ class Variable{
         std::string name;
 
         // variables have two types for values
+        // type 0: no type
         // type 1: YES OR NO
         // type 2: numberical value
         int type;
@@ -26,6 +27,7 @@ class Variable{
         double get_num_value() { return d_value; };
 
         void set_name(std::string);
+        void set_type(int);
         void set_str_value(std::string);
         void set_num_value(double);
 
