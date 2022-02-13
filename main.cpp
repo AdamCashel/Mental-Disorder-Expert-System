@@ -76,13 +76,23 @@ void initialSymptoms()
             std::cin >> user_answer;
             bool found = false;
             int i = 0;
-            while(!found)
+            while(!found && i < 33)
             {
-                if(user_answer == varList[i].get_name_value())
+                if(user_answer == varList[i].get_name())
                 {
                     found = true;
-                    
+                    if(varList[i].get_type() == 2)
+                    {
+                         std::cout << "Enter Value for " << user_answer << std::endl;
+                         std::cin >> user_answer;
+                         varList[i].set_str_value(user_answer);
+                    }
                 }
+                i++;
+            }
+            if(found == false)
+            {
+                std::cout << user_answer << " not found" << std::endl;
             }
         }
     }

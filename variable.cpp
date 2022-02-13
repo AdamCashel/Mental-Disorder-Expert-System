@@ -23,6 +23,3 @@ void Variable::set_num_value(double value){
     this->d_value = value;
 }
 
-std::string Variable::get_name_value(){
-    return this->name;
-}
