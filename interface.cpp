@@ -19,9 +19,10 @@ extern void intro_directions()
 }
 
 extern std::string to_upper_case(std::string stringTemp)
-{
+{   
     for(int i = 0; i < stringTemp.length(); i++)
     {
         stringTemp[i] = toupper(stringTemp[i]);
     }
+    return stringTemp; 
 }
