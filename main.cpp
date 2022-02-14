@@ -90,6 +90,7 @@ void initialSymptoms()
                          getline(std::cin, user_answer);
                          varList[i].set_str_value(user_answer);
                     }
+                    std::cout << user_answer << " was found in symptom list" << std::endl;
                 }
                 i++;
             }
