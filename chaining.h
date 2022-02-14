@@ -3,6 +3,6 @@
 #include <vector>
 #include "variable.h"
 
-extern void instantiate(std::string, std::vector<Variable> &, std::vector<int> &);
+extern void instantiate(Variable, std::vector<Variable> &, std::vector<int> &);
 
-extern int determine_member_concl_list(std::string, std::vector<Variable>);
+extern int determine_member_concl_list(std::string, std::vector<Variable>, int = 1);

@@ -7,7 +7,7 @@
 void instantiate(std::string var, std::vector<Variable> &varList, std::vector<int> &instList) {
     // look for variable in variable list
     int idx = -1;
-    for(int i = 1; i < var.size(); i++){
+    for(int i = 1; i < varList.size(); i++){
         if(var == varList[i].get_name()){
             idx = i;
             break;
@@ -47,8 +47,8 @@ void instantiate(std::string var, std::vector<Variable> &varList, std::vector<in
 // updated version of fuction in the provided C program
 // searches for variable name in conclusion list
 // return index if found, -1 if not found
-int determine_member_concl_list(std::string name, std::vector<Variable> concl_list){
-    for(int i = 1; i < concl_list.size(); i++){
+int determine_member_concl_list(std::string name, std::vector<Variable> concl_list, int start /* = 1*/){
+    for(int i = start; i < concl_list.size(); i++){
         if(name == concl_list[i].get_name())
             return i;
     }
