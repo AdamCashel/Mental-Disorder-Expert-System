@@ -27,8 +27,8 @@ std::stack<int> statementStack;
 // clause stack
 std::stack<int> clauseStack;
 
-Variable var(0);
 
+Variable var(0);
 
 //Diagnose Mental Disorder Function (Backward Chaining)
 void diagnoseDisorder()
@@ -44,11 +44,56 @@ void diagnoseDisorder()
     // if the index is not -1, then the clause was found and is valid
     if(statementNum != -1){
         // push the statement number (index) onto the statement stack
-        std::cout << "Conclusion found.\n";
-        statementStack.push(statementNum);
-        // push 1 onto the clause stack
-        // !!! STILL NEED TO FIND OUT WHY !!!
-        clauseStack.push(1);
+        std::cout << "CONCLUSION FOUND\n";
+
+        bool invokeThen = false;
+        do{
+            statementStack.push(statementNum);
+            // push 1 onto the clause stack
+            // !!! STILL NEED TO FIND OUT WHY !!!
+            // seems to be used as an offset in the clause variable list
+
+            clauseStack.push(1);
+            do{
+                // calculate clause var index
+                int clauseVarIdx = (statementStack.top() - 1) * 10 + clauseStack.top();
+                
+                var = clauseVarList[clauseVarIdx];
+                // if the index in the clauseVarList goes to nothing
+                if(var.get_name() != ""){
+                    // is the variable a conclusion?
+                    statementNum = determine_member_concl_list(var.get_name(), conclusionList);
+                    if(statementNum != -1){
+                        // variable is a conclusion, push onto stack
+                        statementStack.push(statementNum);
+                        clauseStack.push(1);
+                    }
+                    else {
+                        //instantiate the variable
+                        instantiate(var, varList, instantiatedList);
+                        // increate clauseStack top value
+                        clauseStack.top()++;
+                    }
+                }
+            }while(var.get_name() != "");
+            
+            statementNum = statementStack.top();
+            invokeThen = false;
+            
+            // call check on if part of the knowledge base (switch statement)
+
+            if(!invokeThen){
+                // did not satify any conditions
+                // get next conclusion in stack
+                int conclVarIdx = statementStack.top();
+                var = conclusionList[conclVarIdx];
+                statementNum = determine_member_concl_list(var.get_name(), conclusionList, (statementStack.top() + 1));
+                statementStack.pop();
+            }
+        } while (!invokeThen && statementNum != 0);
+    }
+    else{
+         std::cout << "CONCLUSION NOT FOUND\n";
     }
 
 }
