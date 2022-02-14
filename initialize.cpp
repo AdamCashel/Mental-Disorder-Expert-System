@@ -67,6 +67,6 @@ int clause_number_formula(int rule_numb)
 //Formula to get rule number output by clause number input (Forward Chaining)
 int rule_number_formula(int clause_numb)
 {
-    int rule_temp = ((clause_numb / 10) + 1) * 10;
+    int rule_temp = ((clause_numb / 10)) * 10;
     return rule_temp;
 }
