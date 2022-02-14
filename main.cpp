@@ -27,8 +27,8 @@ std::stack<int> statementStack;
 // clause stack
 std::stack<int> clauseStack;
 
-Variable var(0);
 
+Variable var(0);
 
 //Diagnose Mental Disorder Function (Backward Chaining)
 void diagnoseDisorder()
@@ -44,11 +44,24 @@ void diagnoseDisorder()
     // if the index is not -1, then the clause was found and is valid
     if(statementNum != -1){
         // push the statement number (index) onto the statement stack
-        std::cout << "Conclusion found.\n";
+        std::cout << "CONCLUSION FOUND\n";
         statementStack.push(statementNum);
         // push 1 onto the clause stack
         // !!! STILL NEED TO FIND OUT WHY !!!
         clauseStack.push(1);
+
+        // calculate clause var index
+        int clauseVarIdx = (statementStack.top() - 1) * 10 + clauseStack.top();
+
+        var = clauseVarList[clauseVarIdx];
+        // if the index in the clauseVarList goes to nothing
+        // something is wrong ? so try again?
+        if(var.get_name() == ""){
+        }
+
+    }
+    else{
+         std::cout << "CONCLUSION NOT FOUND\n";
     }
 
 }
