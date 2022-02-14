@@ -72,7 +72,7 @@ void initialSymptoms()
         std::cout << "Enter symptoms of the patient already obtained. Press 's' to stop" << std::endl;
         getline(std::cin, user_answer);
         user_answer = to_upper_case(user_answer);
-        while(user_answer != "s")
+        while(user_answer != "S")
         {
             std::cout << "Enter Patient Symptom" << std::endl;
             getline(std::cin, user_answer);
