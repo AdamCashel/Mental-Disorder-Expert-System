@@ -37,7 +37,7 @@ void diagnoseDisorder()
     // promt user for a conclusion to verify
     std::cout << "Enter Conclusion: \n" << std::endl;
     std::string conclusion; std::cin >> conclusion;
-
+    conclusion = to_upper_case(conclusion);
     // check if conclusion is valid
     int statementNum = determine_member_concl_list(conclusion, conclusionList);
     
