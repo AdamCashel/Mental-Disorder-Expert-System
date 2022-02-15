@@ -69,4 +69,4 @@ int rule_number_formula(int clause_numb)
 {
     int rule_temp = ((clause_numb / 10)) * 10;
     return rule_temp;
-}
+} 

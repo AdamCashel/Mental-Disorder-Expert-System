@@ -70,7 +70,7 @@ void diagnoseDisorder()
                     }
                     else {
                         //instantiate the variable
-                        instantiate(var, varList, instantiatedList);
+                        instantiate(var.get_name(), varList, instantiatedList);
                         // increate clauseStack top value
                         clauseStack.top()++;
                     }
@@ -134,6 +134,7 @@ void initialSymptoms()
                          std::cout << "Enter Value for " << user_answer << std::endl;
                          getline(std::cin, user_answer);
                          varList[i].set_str_value(user_answer);
+                         instantiatedList[i] = 1;
                     }
                     std::cout << user_answer << " was found in symptom list" << std::endl;
                 }
