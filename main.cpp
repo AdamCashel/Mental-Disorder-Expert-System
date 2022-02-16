@@ -101,7 +101,7 @@ void diagnoseDisorder()
 //Treatment for Disorder Function (Forward Chaining)
 void disorderTreatment()
 {
-
+    intro_treatment();
 }
 
 //Asks user for the initial symptoms of patient
@@ -178,5 +178,6 @@ int main() {
     //After getting mental disorder diagnoses call disorderTreatment()
     disorderTreatment();
 
-    
+    //End of Program
+    end_message();
 }
