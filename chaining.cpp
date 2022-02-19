@@ -120,52 +120,88 @@ bool condition_switch(int statementNum, std::vector<Variable> varList){
 
         case 9:
             if(varList[2].get_str_value() == "YES" && varList[3].get_str_value() == "YES" &&
-                varList[4].get_str_value() == "YES" && varList[17].get_str_value() == "YES" &&
+                varList[4].get_str_value() == "YES" && varList[12].get_str_value() == "YES" &&
                 varList[13].get_str_value() == "YES" && varList[14].get_str_value() == "YES" &&
                 varList[33].get_num_value() > 2)
                 return true;
         
         case 10:
             if(varList[2].get_str_value() == "YES" && varList[3].get_str_value() == "YES" &&
-                varList[4].get_str_value() == "YES" && varList[17].get_str_value() == "YES" &&
+                varList[4].get_str_value() == "YES" && varList[12].get_str_value() == "YES" &&
                 varList[13].get_str_value() == "YES" && varList[14].get_str_value() == "YES" &&
                 varList[33].get_num_value() > 2)
                 return true;
 
         case 11:
             if(varList[2].get_str_value() == "YES" && varList[3].get_str_value() == "YES" &&
-                varList[4].get_str_value() == "YES" && varList[17].get_str_value() == "YES" &&
+                varList[4].get_str_value() == "YES" && varList[12].get_str_value() == "YES" &&
                 varList[13].get_str_value() == "YES" && varList[14].get_str_value() == "NO" &&
                 varList[15].get_str_value() == "YES" && varList[33].get_num_value() < 2)
                 return true;
 
         case 12:
             if(varList[2].get_str_value() == "YES" && varList[3].get_str_value() == "YES" &&
-                varList[4].get_str_value() == "YES" && varList[17].get_str_value() == "YES" &&
+                varList[4].get_str_value() == "YES" && varList[12].get_str_value() == "YES" &&
                 varList[13].get_str_value() == "YES" && varList[14].get_str_value() == "NO" &&
                 varList[15].get_str_value() == "YES" && varList[33].get_num_value() > 2)
                 return true;
         
         case 13:
             if(varList[2].get_str_value() == "YES" && varList[3].get_str_value() == "YES" &&
-                varList[4].get_str_value() == "YES" && varList[17].get_str_value() == "YES" &&
+                varList[4].get_str_value() == "YES" && varList[12].get_str_value() == "YES" &&
                 varList[13].get_str_value() == "NO" && varList[16].get_str_value() == "NO" && 
                 varList[14].get_str_value() == "YES" && varList[33].get_num_value() < 2)
                 return true;
 
         case 14: 
             if(varList[2].get_str_value() == "YES" && varList[3].get_str_value() == "YES" &&
-                varList[4].get_str_value() == "YES" && varList[17].get_str_value() == "YES" &&
+                varList[4].get_str_value() == "YES" && varList[12].get_str_value() == "YES" &&
                 varList[13].get_str_value() == "NO" && varList[16].get_str_value() == "NO" &&
                 varList[14].get_str_value() == "YES" && varList[33].get_num_value() > 2)
                 return true;
+
         case 15:
             if(varList[2].get_str_value() == "YES" && varList[3].get_str_value() == "YES" &&
-                varList[4].get_str_value() == "YES" && varList[17].get_str_value() == "YES" &&
+                varList[4].get_str_value() == "YES" && varList[12].get_str_value() == "YES" &&
                 varList[13].get_str_value() == "NO" && varList[16].get_str_value() == "NO" &&
                 varList[14].get_str_value() == "NO" && varList[15].get_str_value() == "YES" &&
                 varList[33].get_num_value() < 2)
                 return true;
+
+        case 16:
+            if(varList[2].get_str_value() == "Yes" && varList[3].get_str_value() == "YES" && 
+            varList[4].get_str_value() == "YES" && varList[12].get_str_value() == "YES" &&
+            varList[13].get_str_value() == "NO" && varList[16].get_str_value() == "NO" &&
+            varList[14].get_str_value() == "NO" && varList[15].get_str_value() == "YES" &&
+            varList[33].get_num_value() > 2)
+            return true;
+
+        case 17:
+            if(varList[2].get_str_value() == "YES" && varList[3].get_str_value() == "YES" &&
+            varList[4].get_str_value() == "YES" && varList[12].get_str_value() == "YES" &&
+            varList[13].get_str_value() == "NO" && varList[16].get_str_value() == "YES" &&
+            varList[15].get_str_value() == "YES" && varList[33].get_num_value() < 2)
+            return true;
+        
+        case 18:
+        if(varList[2].get_str_value() == "YES" && varList[3].get_str_value() == "YES" &&
+            varList[4].get_str_value() == "YES" && varList[12].get_str_value() == "YES" &&
+            varList[13].get_str_value() == "NO" && varList[16].get_str_value() == "YES" &&
+            varList[15].get_str_value() == "YES" && varList[33].get_num_value() < 2)
+            return true;
+
+        case 19:
+        if(varList[2].get_str_value() == "YES" && varList[3].get_str_value() == "YES" &&
+            varList[4].get_str_value() == "YES" && varList[12].get_str_value() == "NO" &&
+            varList[16].get_str_value() == "NO" && varList[14].get_str_value() == "NO" &&
+            varList[33].get_num_value() < 2)
+            return true;
+
+        case 20:
+        if(varList[2].get_str_value() == "YES" && varList[3].get_str_value() == "YES" &&
+            varList[4].get_str_value() == "YES" && varList[12].get_str_value() == "NO" &&
+            varList[16].get_str_value() == "NO" && varList[14].get_str_value() == "YES" &&
+            varList[33].get_num_value() > 2)
 
         default:
             return false;
