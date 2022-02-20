@@ -35,7 +35,7 @@ void diagnoseDisorder()
 {   
     // INITIAL INPUT
     // promt user for a conclusion to verify
-    std::cout << "Enter Conclusion: \n" << std::endl;
+    std::cout << "Enter Conclusion: \n";
     std::string conclusion; std::cin >> conclusion;
     conclusion = to_upper_case(conclusion);
     // check if conclusion is valid
@@ -115,8 +115,6 @@ void initialSymptoms()
     if(user_answer == "Y")
     {
         std::cout << "Enter symptoms of the patient already obtained. Press 's' to stop" << std::endl;
-        getline(std::cin, user_answer);
-        user_answer = to_upper_case(user_answer);
         while(user_answer != "S")
         {
             std::cout << "Enter Patient Symptom" << std::endl;
