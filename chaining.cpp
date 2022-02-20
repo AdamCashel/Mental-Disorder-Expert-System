@@ -202,6 +202,42 @@ bool condition_switch(int statementNum, std::vector<Variable> varList){
             varList[4].get_str_value() == "YES" && varList[12].get_str_value() == "NO" &&
             varList[16].get_str_value() == "NO" && varList[14].get_str_value() == "YES" &&
             varList[33].get_num_value() > 2)
+            return true;
+
+        case 21:
+        if(varList[2].get_str_value() == "YES" && varList[3].get_str_value() == "YES" &&
+            varList[4].get_str_value() == "YES" && varList[12].get_str_value() == "NO" &&
+            varList[16].get_str_value() == "NO" && varList[14].get_str_value() == "NO" &&
+            varList[15].get_str_value() == "YES" && varList[33].get_num_value() < 2)
+            return true;
+
+        case 22:
+        if(varList[2].get_str_value() == "YES" && varList[3].get_str_value() == "YES" &&
+            varList[4].get_str_value() == "YES" && varList[12].get_str_value() == "NO" &&
+            varList[16].get_str_value() == "NO" && varList[14].get_str_value() == "NO" &&
+            varList[15].get_str_value() == "YES" && varList[33].get_num_value() > 2)
+            return true;
+
+        case 23:
+        if(varList[2].get_str_value() == "YES" && varList[3].get_str_value() == "YES" &&
+            varList[4].get_str_value() == "YES" && varList[12].get_str_value() == "NO" &&
+            varList[16].get_str_value() == "NO" && varList[15].get_str_value() == "YES" && 
+            varList[3].get_num_value() < 2)
+            return true;
+
+        case 24:
+        if(varList[2].get_str_value() == "YES" && varList[3].get_str_value() == "YES" &&
+            varList[4].get_str_value() == "YES" && varList[12].get_str_value() == "NO" &&
+            varList[16].get_str_value() == "NO" && varList[15].get_str_value() == "YES" &&
+            varList[33].get_num_value() > 2)
+            return true;
+
+        case 25:
+        if(varList[2].get_str_value() == "YES" && varList[3].get_str_value() == "YES" &&
+            varList[4].get_str_value() == "YES" && varList[12].get_str_value() == "YES" &&
+            varList[17].get_str_value() == "NO" && varList[34].get_str_value() == "YES" &&
+            varList[19].get_str_value() == "YES" && varList[18].get_str_value() == "YES")
+            return true;
 
         default:
             return false;
