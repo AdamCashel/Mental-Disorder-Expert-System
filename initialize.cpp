@@ -4,7 +4,7 @@
 
 // starting index is 1, so we add 1 to size
 const int CONCL_LIST_SIZE = 62 + 1;
-const int VAR_LIST_SIZE = 32 + 1;
+const int VAR_LIST_SIZE = 34 + 1;
 
 // we have a maximum of 9 variables in our if clauses
 // since we have 17 rules, with at most 9 variables each,
