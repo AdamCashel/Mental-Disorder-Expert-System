@@ -320,6 +320,33 @@ bool condition_switch(int statementNum, std::vector<Variable> varList){
             varList[23].get_str_value() == "YES" && varList[24].get_str_value() == "YES")
             return true;
 
+        case 37:
+            if(varList[2].get_str_value() == "YES" && varList[3].get_str_value() == "YES" &&
+                varList[4].get_str_value() == "YES" && varList[22].get_str_value() == "NO" &&
+                varList[25].get_str_value() == "NO" && varList[26].get_str_value() == "YES" &&
+                varList[24].get_str_value() == "NO")
+                return true;
+
+        case 38:
+            if(varList[2].get_str_value() == "YES" && varList[3].get_str_value() == "YES" &&
+                varList[4].get_str_value() == "YES" && varList[22].get_str_value() == "NO" &&
+                varList[25].get_str_value() == "NO" && varList[26].get_str_value() == "YES" &&
+                varList[24].get_str_value() == "YES")
+                return true;
+
+        case 39:
+            if(varList[2].get_str_value() == "YES" && varList[3].get_str_value() == "YES" &&
+                varList[4].get_str_value() == "YES" && varList[22].get_str_value() == "YES" &&
+                varList[26].get_str_value() == "NO" && varList[23].get_str_value() == "NO" &&
+                varList[23].get_str_value() == "YES" && varList[24].get_str_value() == "NO")
+                return true;
+
+        case 40:
+            if(varList[2].get_str_value() == "YES" && varList[3].get_str_value() == "YES" &&
+                varList[4].get_str_value() == "YES" && varList[22].get_str_value() == "YES" &&
+                varList[26].get_str_value() == "NO" && varList[23].get_str_value() == "YES" &&
+                varList[24].get_str_value() == "YES")
+                return true;
         default:
             return false;
             break;
