@@ -414,6 +414,39 @@ bool condition_switch(int statementNum, std::vector<Variable> varList){
                 varList[24].get_str_value() == "YES")
                 return true;
 
+        case 51:
+            if(varList[2].get_str_value() == "YEs" && varList[3].get_str_value() == "NO" &&
+                varList[35].get_str_value() == "NO" && varList[22].get_str_value() == "YES" &&
+                varList[26].get_str_value() == "YES" && varList[24].get_str_value() == "NO")
+                return true;
+
+        case 52:
+            if(varList[2].get_str_value() == "YES" && varList[3].get_str_value() == "NO" &&
+                varList[35].get_str_value() == "NO" && varList[22].get_str_value() == "YES" &&
+                varList[26].get_str_value() == "YES" && varList[24].get_str_value() == "YES")
+                return true;
+
+        case 53:
+            if(varList[2].get_str_value() == "YES" && varList[3].get_str_value() == "NO" &&
+                varList[35].get_str_value() == "YES" && varList[27].get_str_value() == "YES" &&
+                varList[28].get_str_value() == "YES" && varList[29].get_str_value() == "YES" &&
+                varList[12].get_str_value() == "NO" && varList[30].get_num_value() > 6)
+                return true;
+
+        case 54:
+            if(varList[2].get_str_value() == "YES" && varList[3].get_str_value() == "NO" &&
+                varList[35].get_str_value() == "YES" && varList[27].get_str_value() == "YES" &&
+                varList[28].get_str_value() == "YES" && varList[29].get_str_value() == "YES" &&
+                varList[12].get_str_value() == "YES")
+                return true;
+        
+        case 55:
+            if(varList[2].get_str_value() == "YES" && varList[3].get_str_value() == "NO" &&
+                varList[35].get_str_value() == "YES" && varList[27].get_str_value() == "YES" &&
+                varList[28].get_str_value() == "NO" && varList[31].get_str_value() == "NO" &&
+                varList[29].get_str_value() == "YES" && varList[12].get_str_value() == "NO" &&
+                varList[30].get_num_value() > 6)
+
         default:
             return false;
             break;
