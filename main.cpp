@@ -43,7 +43,7 @@ void diagnoseDisorder()
     int statementNum = determine_member_concl_list(conclusion, conclusionList);
     
     // if the index is not -1, then the clause was found and is valid
-    if(statementNum != -1){
+    while(statementNum != -1){
         // push the statement number (index) onto the statement stack
         std::cout << "CONCLUSION FOUND\n";
 
@@ -55,15 +55,21 @@ void diagnoseDisorder()
             // seems to be used as an offset in the clause variable list
             clauseStack.push(1);
             do{
+                //
                 // calculate clause var index
                 std::cout << "<diagnoseDisorder> statementStack top: " << statementStack.top() << std::endl;
-                int clauseVarIdx = (statementStack.top() - 1) * 10 + clauseStack.top() - 1;
+                int clauseVarIdx = (statementStack.top() - 1) * 10 + clauseStack.top();
 
                 std::cout << "<diagnoseDisorder> calculated clause variable index: " << clauseVarIdx << std::endl;
                 
                 var = clauseVarList[clauseVarIdx];
                 std::cout << "<diagnoseDisorder> variable at calculated index: " << var.get_name() << std::endl;
-                // if the index in the clauseVarList goes to nothing
+                // match up the clause variable that was found0
+                // to the variable in the variable list
+                var = varList[find_var_index(var.get_name(), varList)];
+
+                std::cout << "<diagnoseDisorder> variable value: " << var.get_str_value() << std::endl;
+                // if the index in the clauseVarList does not go to nothing
                 if(var.get_name() != ""){
                     // is the variable a conclusion?
                     statementNum = determine_member_concl_list(var.get_name(), conclusionList);
@@ -86,8 +92,8 @@ void diagnoseDisorder()
             
             // call check on if part of the knowledge base (switch statement)
             std::cout << "<diagnoseDisorder> calling if condition switch on statement number: " << statementNum << std::endl;
-            invokeThen = condition_switch(statementNum, varList);
-            std::cout << std::boolalpha << invokeThen << std::endl; 
+            invokeThen = if_condition_switch(statementNum, varList);
+            std::cout << std::boolalpha << "<diagnoseDisorder> if condition switch result: " << invokeThen << std::endl; 
             if(!invokeThen){
                 // did not satify any conditions
                 // get next conclusion in stack
@@ -97,10 +103,21 @@ void diagnoseDisorder()
                 statementStack.pop();
             }
         } while (!invokeThen && statementNum != 0);
-    }
-    else{
-         std::cout << "CONCLUSION NOT FOUND\n";
-    }
+
+        // TODO:    
+        // implement then condition switch
+        std::string disorder = then_condition_switch(statementNum);
+        std::cout << disorder << std::endl;
+        /// if statementStack is empty, complete
+        /// else pop next statement number from stack and continue
+        statementStack.pop();
+        if(statementStack.empty())
+            break;
+        else{
+            statementNum = statementStack.top();
+        } 
+    };
+    std::cout << "Disorder found\n";
 }
 
 //Treatment for Disorder Function (Forward Chaining)
@@ -159,6 +176,7 @@ int main() {
     init_clause_var_list(clauseVarList);
 
     // display values for user to see
+    /*
     std::cout << "CONCLUSION LIST\n";
     print_list(conclusionList);
 
@@ -171,7 +189,7 @@ int main() {
 
     std::cout << "CLAUSE VARIABLE LIST\n";
     print_list(clauseVarList);
-
+    */
     //Start getting symptoms from user
     initialSymptoms();
 
