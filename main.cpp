@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stack>
+#include <queue>
 
 #include "initialize.h"
 #include "interface.h"
@@ -27,6 +28,17 @@ std::stack<int> statementStack;
 // clause stack
 std::stack<int> clauseStack;
 
+// Forward Chaining Variables
+// clause variable pointer
+
+// conclusion variable queue
+std::queue<Variable> conclusionQueue;
+
+//Varaible List
+std::vector<Variable> clauseVarList(VAR_FORWARD_LIST_SIZE, 0);
+
+// clause varaible list
+std::vector<Variable> clauseVarList(CONCL_FORWARD_LIST_SIZE, 0);
 
 Variable var(0);
 
@@ -121,9 +133,19 @@ void diagnoseDisorder()
 }
 
 //Treatment for Disorder Function (Forward Chaining)
-void disorderTreatment()
+void disorderTreatment(std::string disorder_given)
 {
+    //Introduction of treatment diagnoses
     intro_treatment();
+    //Check the clause variable list for the first instace for if condtion is present
+    //After finding what clause # its at the # is converted through the equation to the given rule #
+    //Search clause list
+    bool found = false;
+    while(!found)
+    {
+        int i = 0;
+        
+    }
 }
 
 //Asks user for the initial symptoms of patient
@@ -197,7 +219,8 @@ int main() {
     diagnoseDisorder();
 
     //After getting mental disorder diagnoses call disorderTreatment()
-    disorderTreatment();
+    std::string dummy_disorder = " ";
+    disorderTreatment(dummy_disorder);
 
     //End of Program
     end_message();

@@ -13,6 +13,8 @@ extern void init_var_list(std::vector<Variable> &);
 
 extern void init_clause_var_list(std::vector<Variable> &);
 
+extern void init_clause_var_list_forward(std::vector<Variable> &);
+
 extern int clause_number_formula(int);
 
 extern int rule_number_formula(int);

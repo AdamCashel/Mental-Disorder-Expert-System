@@ -6,6 +6,10 @@
 const int CONCL_LIST_SIZE = 62 + 1;
 const int VAR_LIST_SIZE = 35 + 1;
 
+//Conclusion list and varaibles for forward size
+const int CONCL_FORWARD_LIST_SIZE = 11;
+const int CLAUSE_VAR_LIST_SIZE = 113;
+
 // we have a maximum of 9 variables in our if clauses
 // since we have 17 rules, with at most 9 variables each,
 // the max length of our clause variable list is 153
@@ -55,6 +59,20 @@ void init_clause_var_list(std::vector<Variable> &vector){
     std::string line;
 
     inputFile.open("./data/backward-chaining-clauselist.txt");
+    for(int i = 1; i < CLAUSE_VAR_LIST_SIZE; i++){
+        getline(inputFile, line);
+        vector[i].set_name(line);
+    }
+    inputFile.close();
+}
+
+//Getting clause variable list from forward-chaining-clauselist.txt
+void init_clause_var_list_forward(std::vector<Variable> &vector)
+{
+    std::ifstream inputFile;
+    std::string line;
+
+    inputFile.open("./data/forward-chaining-clauselist.txt");
     for(int i = 1; i < CLAUSE_VAR_LIST_SIZE; i++){
         getline(inputFile, line);
         vector[i].set_name(line);
