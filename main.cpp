@@ -122,7 +122,7 @@ void initialSymptoms()
             user_answer = to_upper_case(user_answer);
             bool found = false;
             int i = 0;
-            while(!found && i < 33)
+            while(!found && i < VAR_LIST_SIZE)
             {
                 if(user_answer == varList[i].get_name())
                 {
