@@ -63,3 +63,8 @@ extern std::string to_upper_case(std::string stringTemp)
     }
     return stringTemp; 
 }
+
+extern void diagnoseOutput(std::string inputDisorder)
+{
+    std::cout<< "Patient has been diagnosed with " << inputDisorder << std::endl;
+}
