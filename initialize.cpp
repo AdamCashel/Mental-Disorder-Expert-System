@@ -9,7 +9,7 @@ const int VAR_LIST_SIZE = 35 + 1;
 // we have a maximum of 9 variables in our if clauses
 // since we have 17 rules, with at most 9 variables each,
 // the max length of our clause variable list is 153
-const int CLAUSE_VAR_LIST_SIZE = 153 + 1;
+const int CLAUSE_VAR_LIST_SIZE = 620 + 1;
 
 // places the values below in the vector of strings passed
 void init_concl_list(std::vector<Variable> &vector) {
@@ -34,7 +34,7 @@ void init_var_list(std::vector<Variable> &vector) {
     for(int i = 1; i < VAR_LIST_SIZE; i++){
         getline(inputFile, line);
         vector[i].set_name(line);
-        if(i != 33 || i != 33)
+        if(i != 30 || i != 33)
             vector[i].set_type(1);
         else
             vector[i].set_type(2);
@@ -75,3 +75,11 @@ int rule_number_formula(int clause_numb)
     int rule_temp = ((clause_numb / 10)) * 10;
     return rule_temp;
 } 
+
+int find_var_index(std::string varName, std::vector<Variable> varList){
+    for(int i = 1; i < varList.size(); i++){
+        if(varList[i].get_name() == varName)
+            return i;
+    }
+    return -1;
+}

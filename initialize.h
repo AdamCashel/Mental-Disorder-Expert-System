@@ -17,4 +17,6 @@ extern int clause_number_formula(int);
 
 extern int rule_number_formula(int);
 
+extern int find_var_index(std::string, std::vector<Variable>);
+
 
