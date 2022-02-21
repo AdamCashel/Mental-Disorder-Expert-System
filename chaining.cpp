@@ -617,6 +617,7 @@ int disordertype_helper(std::string disorderTemp)
         disorderNumber = -1;
         std::cout << "ERROR IN DISORDERTYPE_HELPER()" << std::endl;
     }
+    return disorderNumber;
 }
 
 //Function to find the disorder type given what the disorder diagnoses is
@@ -627,43 +628,42 @@ std::string condition_switch_disordertype(std::string disorder)
     switch(disorderNumber){
         case 1:
             disorder_type = "NONE";
+            return disorder_type;
             break;
-            return;
         case 2:
             disorder_type = "PERSONALITY";
+            return disorder_type;
             break;
-            return;
         case 3:
             disorder_type = "MOOD";
+            return disorder_type;
             break;
-            return;
         case 4:
             disorder_type = "MOOD";
+            return disorder_type;
             break;
-            return;
         case 5:
             disorder_type = "ANXIETY";
+            return disorder_type;
             break;
-            return;
         case 6:
             disorder_type = "ANXIETY";
+            return disorder_type;
             break;
-            return;
         case 7:
             disorder_type = "PSYCHOTIC";
+            return disorder_type;
             break;
-            return;
         case 8:
             disorder_type = "PSYCHOTIC";
+            return disorder_type;
             break;
-            return;
         case 9:
             disorder_type = "MOOD";
+            return disorder_type;
             break;
-            return;
         default:
-            return;
+            return disorder_type;
             break;
     }
-    return;
 }
