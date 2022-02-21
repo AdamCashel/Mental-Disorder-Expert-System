@@ -40,6 +40,11 @@ std::vector<Variable> clauseVarList(VAR_FORWARD_LIST_SIZE, 0);
 // clause varaible list
 std::vector<Variable> clauseVarList(CONCL_FORWARD_LIST_SIZE, 0);
 
+// Variable Pointer Array
+//First index is rule number second index is clause number
+int variable_pointer[2] = {};
+
+
 Variable var(0);
 
 //Diagnose Mental Disorder Function (Backward Chaining)
