@@ -60,7 +60,7 @@ int determine_member_concl_list(std::string name, std::vector<Variable> concl_li
 }
 
 
-bool condition_switch(int statementNum, std::vector<Variable> varList){
+bool if_condition_switch(int statementNum, std::vector<Variable> varList){
     // varList[idx], where idx = respective variable for the rules
     switch(statementNum){
         case 1:
@@ -507,6 +507,23 @@ bool condition_switch(int statementNum, std::vector<Variable> varList){
     }
     return false;
 }
+
+std::string then_condition_switch(int statementNum){
+    switch (statementNum)
+    {
+    case 1:
+        return "NONE";
+        break;
+
+    case 2:
+        return "YES";
+        break;
+    
+    default:
+        break;
+    }
+}
+
 
 bool condition_switch_forward(int statementNum, std::vector<Variable> varList)
 {
