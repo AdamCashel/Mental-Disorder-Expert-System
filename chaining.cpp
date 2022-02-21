@@ -567,3 +567,52 @@ bool condition_switch_forward(int statementNum, std::vector<Variable> varList)
     }
     return false;
 }
+
+//Function helper for condition_switch_disordertype() to take disorder diagnoses string into an int for switch statements
+int disordertype_helper(std::string disorderTemp)
+{
+    int disorderNumber = 0;
+    if(disorderTemp == "NONE")
+    {
+        disorderNumber = 1;
+    }
+    else if(disorderTemp == "DISSOCIATIVE IDENTITY DISORDER")
+    {
+        disorderNumber = 2;
+    }
+    else if(disorderTemp == "DYSTHYMIA")
+    {
+        disorderNumber = 3;
+    }
+    else if(disorderTemp == "BIPOLAR 1")
+    {
+        disorderNumber = 4;
+    }
+    else if(disorderTemp == "GENERALIZED ANXIETY DISORDER")
+    {
+        disorderNumber = 5;
+    }
+    else if(disorderTemp == "PANIC DISORDERR WITH AGORAPHOBIA")
+    {
+        disorderNumber = 6;
+    }
+    else if(disorderTemp == "SCHIZOPHRENIA")
+    {
+        disorderNumber = 7;
+    }
+    else if(disorderTemp == "SCHIZOAFFECTIVE")
+    {
+        disorderNumber = 8;
+    }
+    else
+    {
+        disorderNumber = -1;
+        std::cout << "ERROR IN DISORDERTYPE_HELPER()" << std::endl;
+    }
+}
+
+//Function tyo find the disorder type given what the disorder diagnoses is
+bool condition_switch_disordertype(int statementNum, std::vector<Variable> varList)
+{
+    switch
+}
