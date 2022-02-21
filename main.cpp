@@ -33,6 +33,7 @@ Variable var(0);
 //Diagnose Mental Disorder Function (Backward Chaining)
 void diagnoseDisorder()
 {   
+    std::string diagnosedDisorder = "";
     // INITIAL INPUT
     // promt user for a conclusion to verify
     std::cout << "Enter Conclusion: \n";
@@ -52,13 +53,16 @@ void diagnoseDisorder()
             // push 1 onto the clause stack
             // !!! STILL NEED TO FIND OUT WHY !!!
             // seems to be used as an offset in the clause variable list
-
             clauseStack.push(1);
             do{
                 // calculate clause var index
-                int clauseVarIdx = (statementStack.top() - 1) * 10 + clauseStack.top();
+                std::cout << "<diagnoseDisorder> statementStack top: " << statementStack.top() << std::endl;
+                int clauseVarIdx = (statementStack.top() - 1) * 10 + clauseStack.top() - 1;
+
+                std::cout << "<diagnoseDisorder> calculated clause variable index: " << clauseVarIdx << std::endl;
                 
                 var = clauseVarList[clauseVarIdx];
+                std::cout << "<diagnoseDisorder> variable at calculated index: " << var.get_name() << std::endl;
                 // if the index in the clauseVarList goes to nothing
                 if(var.get_name() != ""){
                     // is the variable a conclusion?
@@ -69,7 +73,7 @@ void diagnoseDisorder()
                         clauseStack.push(1);
                     }
                     else {
-                        //instantiate the variable
+                        // instantiate the variable
                         instantiate(var.get_name(), varList, instantiatedList);
                         // increate clauseStack top value
                         clauseStack.top()++;
@@ -81,7 +85,9 @@ void diagnoseDisorder()
             invokeThen = false;
             
             // call check on if part of the knowledge base (switch statement)
-
+            std::cout << "<diagnoseDisorder> calling if condition switch on statement number: " << statementNum << std::endl;
+            invokeThen = condition_switch(statementNum, varList);
+            std::cout << std::boolalpha << invokeThen << std::endl; 
             if(!invokeThen){
                 // did not satify any conditions
                 // get next conclusion in stack
@@ -95,7 +101,6 @@ void diagnoseDisorder()
     else{
          std::cout << "CONCLUSION NOT FOUND\n";
     }
-
 }
 
 //Treatment for Disorder Function (Forward Chaining)
