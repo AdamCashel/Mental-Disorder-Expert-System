@@ -173,7 +173,7 @@ bool condition_switch(int statementNum, std::vector<Variable> varList){
                 return true;
             break;
         case 16:
-            if(varList[2].get_str_value() == "Yes" && varList[3].get_str_value() == "YES" && 
+            if(varList[2].get_str_value() == "YES" && varList[3].get_str_value() == "YES" && 
                 varList[4].get_str_value() == "YES" && varList[12].get_str_value() == "YES" &&
                 varList[13].get_str_value() == "NO" && varList[16].get_str_value() == "NO" &&
                 varList[14].get_str_value() == "NO" && varList[15].get_str_value() == "YES" &&
