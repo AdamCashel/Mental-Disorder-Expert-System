@@ -7,6 +7,7 @@
 void instantiate(std::string var, std::vector<Variable> &varList, std::vector<int> &instList) {
     // look for variable in variable list
     int idx = -1;
+    std::cout << "<instantiate> searching for: " << var << std::endl;
     for(int i = 1; i < varList.size(); i++){
         if(var == varList[i].get_name()){
             idx = i;
@@ -19,6 +20,8 @@ void instantiate(std::string var, std::vector<Variable> &varList, std::vector<in
         std::cerr << "variable not found\n";
         return;
     }
+
+    std::cout << "<instantiate> variable found\n";
 
     // if variable has already been instantiated, return
     if(instList[idx] == 1)
@@ -33,12 +36,13 @@ void instantiate(std::string var, std::vector<Variable> &varList, std::vector<in
         // prompt user for input
         std::cout << "Input YES or NO for " << varList[idx].get_name() << std::endl;
         std::string temp; std::cin >> temp;
+        temp = to_upper_case(temp);
         varList[idx].set_str_value(temp);
     }
     // variable is numerical value
     else {
         // prompt user for input
-        std::cout << "Input a real number for " << varList[idx].get_name() << std::endl;
+        std::cout << "Input a REAL NUMBER for " << varList[idx].get_name() << std::endl;
         double temp; std::cin >> temp;
         varList[idx].set_num_value(temp);
     }
