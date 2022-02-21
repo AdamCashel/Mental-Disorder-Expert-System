@@ -1,10 +1,10 @@
 Patient does not meet criteria for mental disorder
 Patient Possibly Qualifies for a mental disorder
-Diagnose the patient with Dissociative Identity Disorder(DID - used to be known as Multiple Personality Disorder)
-Diagnose the patient with Major Depressive Disorder
-Diagnose the patient with Dysthymia
-Diagnose the patient with Bipolar l Disorder
-Diagnose the patient Generalized Anxiety Disorder
-Diagnose the patient with Panic Disorder with Agoraphobia
-Diagnose the patient with Schizophrenia
-Diagnose the patient with Schizoaffective
+Dissociative Identity Disorder(DID - used to be known as Multiple Personality Disorder)
+Major Depressive Disorder
+Dysthymia
+Bipolar l 
+Generalized Anxiety Disorder
+Panic Disorder with Agoraphobia
+Schizophrenia
+Schizoaffective
