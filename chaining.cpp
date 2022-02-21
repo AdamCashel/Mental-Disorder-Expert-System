@@ -592,7 +592,7 @@ int disordertype_helper(std::string disorderTemp)
     {
         disorderNumber = 5;
     }
-    else if(disorderTemp == "PANIC DISORDERR WITH AGORAPHOBIA")
+    else if(disorderTemp == "PANIC DISORDER WITH AGORAPHOBIA")
     {
         disorderNumber = 6;
     }
@@ -604,6 +604,10 @@ int disordertype_helper(std::string disorderTemp)
     {
         disorderNumber = 8;
     }
+    else if(disorderTemp == "MAJOR DEPRESSIVE DISORDER")
+    {
+        disorderNumber = 9;
+    }
     else
     {
         disorderNumber = -1;
@@ -611,8 +615,51 @@ int disordertype_helper(std::string disorderTemp)
     }
 }
 
-//Function tyo find the disorder type given what the disorder diagnoses is
-bool condition_switch_disordertype(int statementNum, std::vector<Variable> varList)
+//Function to find the disorder type given what the disorder diagnoses is
+std::string condition_switch_disordertype(std::string disorder)
 {
-    switch
+    int disorderNumber = disordertype_helper(disorder);
+    std::string disorder_type = "";
+    switch(disorderNumber){
+        case 1:
+            disorder_type = "NONE";
+            break;
+            return;
+        case 2:
+            disorder_type = "PERSONALITY";
+            break;
+            return;
+        case 3:
+            disorder_type = "MOOD";
+            break;
+            return;
+        case 4:
+            disorder_type = "MOOD";
+            break;
+            return;
+        case 5:
+            disorder_type = "ANXIETY";
+            break;
+            return;
+        case 6:
+            disorder_type = "ANXIETY";
+            break;
+            return;
+        case 7:
+            disorder_type = "PSYCHOTIC";
+            break;
+            return;
+        case 8:
+            disorder_type = "PSYCHOTIC";
+            break;
+            return;
+        case 9:
+            disorder_type = "MOOD";
+            break;
+            return;
+        default:
+            return;
+            break;
+    }
+    return;
 }
