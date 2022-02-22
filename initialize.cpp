@@ -27,6 +27,18 @@ void init_concl_list(std::vector<Variable> &vector) {
     inputFile.close();
 }
 
+// places the values below in the vector of strings passed
+void init_concl_list_forward(std::vector<Variable> &vector) {
+    std::ifstream inputFile;
+    std::string line;
+    inputFile.open("./data/forward-chaining-conclusionlist.txt");
+    for(int i = 1; i < CONCL_LIST_SIZE; i++){
+        getline(inputFile, line);
+        vector[i].set_name(line);
+    }
+    inputFile.close();
+}
+
 // places the values below in the vector of type Variable
 // TODO:
 // review for abbreviations of variable names
@@ -35,6 +47,26 @@ void init_var_list(std::vector<Variable> &vector) {
     std::string line;
 
     inputFile.open("./data/backward-chaining-variablelist.txt");
+    for(int i = 1; i < VAR_LIST_SIZE; i++){
+        getline(inputFile, line);
+        vector[i].set_name(line);
+        if(i != 30 || i != 33)
+            vector[i].set_type(1);
+        else
+            vector[i].set_type(2);
+
+    }
+    inputFile.close();
+}
+
+// places the values below in the vector of type Variable
+// TODO:
+// review for abbreviations of variable names
+void init_var_list_forward(std::vector<Variable> &vector) {
+    std::ifstream inputFile;
+    std::string line;
+
+    inputFile.open("./data/forward-chaining-variablelist.txt");
     for(int i = 1; i < VAR_LIST_SIZE; i++){
         getline(inputFile, line);
         vector[i].set_name(line);

@@ -12,7 +12,11 @@ extern const int FORWARD_CLAUSE_VAR_LIST_SIZE;
 
 extern void init_concl_list(std::vector<Variable> &);
 
+extern void init_concl_list_forward(std::vector<Variable> &);
+
 extern void init_var_list(std::vector<Variable> &);
+
+extern void init_var_list_forward(std::vector<Variable> &);
 
 extern void init_clause_var_list(std::vector<Variable> &);
 

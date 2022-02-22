@@ -30,7 +30,7 @@ std::stack<int> clauseStack;
 
 // Forward Chaining Variables
 // clause variable pointer
-
+int clauseVariablePointer[2] = {};
 // conclusion variable queue
 std::queue<Variable> conclusionQueue;
 
@@ -144,13 +144,14 @@ void disorderTreatment(std::string disorder_given)
     intro_treatment();
     //Check the clause variable list for the first instace for if condtion is present
     //After finding what clause # its at the # is converted through the equation to the given rule #
-    //Search clause list
-    bool found = false;
-    while(!found)
+    
+    //While loop until treatment is found
+    std::string treatment_found = "";
+    while(treatment_found == "")
     {
-        int i = 0;
-        
+
     }
+   
 }
 
 //Asks user for the initial symptoms of patient
@@ -221,6 +222,8 @@ int main() {
     initialSymptoms();
 
     //After user has entered initial symptoms ask user questions and start diagnoseDisorder()
+    init_concl_list_forward(ForwardclauseVarList);
+    init_var_list_forward(varListForward);
     diagnoseDisorder();
 
     //After getting mental disorder diagnoses call disorderTreatment()
