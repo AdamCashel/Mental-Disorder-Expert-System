@@ -59,6 +59,15 @@ int determine_member_concl_list(std::string name, std::vector<Variable> concl_li
     return -1;
 }
 
+// Function for finding the first occurance of a given variable in the clause variable list
+int determine_variable_location_CVL(std::string varTemp, std::vector<Variable> concl_var_list, int starting_index)
+{
+     for(int i = starting_index; i < concl_var_list.size(); i++){
+        if(varTemp == concl_var_list[i].get_name())
+            return i;
+    }
+    return -1;
+}
 
 
 

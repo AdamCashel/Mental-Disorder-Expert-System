@@ -146,10 +146,14 @@ void disorderTreatment(std::string disorder_given)
     //After finding what clause # its at the # is converted through the equation to the given rule #
     
     //While loop until treatment is found
-    std::string treatment_found = "";
-    while(treatment_found == "")
+    int current_index = 0;
+    std::string search_variable = ""; //Add variable
+    bool treatment_found = false;
+    while(!treatment_found)
     {
-
+        //Search for variable in clause variable list and get index location
+        int CVL_INDEX = determine_variable_location_CVL(search_variable, ForwardclauseVarList, current_index); 
+        //Convert slot number to corresponding rule number by using formula function
     }
    
 }
