@@ -8,8 +8,8 @@ const int VAR_LIST_SIZE = 35 + 1;
 
 //Conclusion list and varaibles for forward size
 const int CONCL_FORWARD_LIST_SIZE = 11;
-const int CLAUSE_VAR_LIST_SIZE = 113;
-
+const int FORWARD_VAR_LIST_SIZE = 10;
+const int FORWARD_CLAUSE_VAR_LIST_SIZE = 113 + 1;
 // we have a maximum of 9 variables in our if clauses
 // since we have 17 rules, with at most 9 variables each,
 // the max length of our clause variable list is 153

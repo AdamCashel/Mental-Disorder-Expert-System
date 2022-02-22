@@ -34,11 +34,11 @@ std::stack<int> clauseStack;
 // conclusion variable queue
 std::queue<Variable> conclusionQueue;
 
-//Varaible List
-std::vector<Variable> clauseVarList(VAR_FORWARD_LIST_SIZE, 0);
+//Varaible List Forward
+std::vector<Variable> varListForward(FORWARD_VAR_LIST_SIZE, 0);
 
-// clause varaible list
-std::vector<Variable> clauseVarList(CONCL_FORWARD_LIST_SIZE, 0);
+// clause varaible list Forward
+std::vector<Variable> ForwardclauseVarList(CONCL_FORWARD_LIST_SIZE, 0);
 
 // Variable Pointer Array
 //First index is rule number second index is clause number
