@@ -32,7 +32,7 @@ void init_concl_list_forward(std::vector<Variable> &vector) {
     std::ifstream inputFile;
     std::string line;
     inputFile.open("./data/forward-chaining-conclusionlist.txt");
-    for(int i = 1; i < CONCL_LIST_SIZE; i++){
+    for(int i = 1; i < CONCL_FORWARD_LIST_SIZE; i++){
         getline(inputFile, line);
         vector[i].set_name(line);
     }
@@ -67,7 +67,7 @@ void init_var_list_forward(std::vector<Variable> &vector) {
     std::string line;
 
     inputFile.open("./data/forward-chaining-variablelist.txt");
-    for(int i = 1; i < VAR_LIST_SIZE; i++){
+    for(int i = 1; i < FORWARD_VAR_LIST_SIZE; i++){
         getline(inputFile, line);
         vector[i].set_name(line);
         if(i != 30 || i != 33)
@@ -105,7 +105,7 @@ void init_clause_var_list_forward(std::vector<Variable> &vector)
     std::string line;
 
     inputFile.open("./data/forward-chaining-clauselist.txt");
-    for(int i = 1; i < CLAUSE_VAR_LIST_SIZE; i++){
+    for(int i = 1; i < FORWARD_CLAUSE_VAR_LIST_SIZE; i++){
         getline(inputFile, line);
         vector[i].set_name(line);
     }
