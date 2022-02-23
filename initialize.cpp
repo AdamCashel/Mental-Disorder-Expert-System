@@ -50,7 +50,7 @@ void init_var_list(std::vector<Variable> &vector) {
     for(int i = 1; i < VAR_LIST_SIZE; i++){
         getline(inputFile, line);
         vector[i].set_name(line);
-        if(i != 30 || i != 33)
+        if(i != 30 && i != 33)
             vector[i].set_type(1);
         else
             vector[i].set_type(2);
@@ -70,7 +70,7 @@ void init_var_list_forward(std::vector<Variable> &vector) {
     for(int i = 1; i < FORWARD_VAR_LIST_SIZE; i++){
         getline(inputFile, line);
         vector[i].set_name(line);
-        if(i != 30 || i != 33)
+        if(i != 30 && i != 33)
             vector[i].set_type(1);
         else
             vector[i].set_type(2);
