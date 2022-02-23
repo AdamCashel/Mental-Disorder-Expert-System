@@ -44,7 +44,7 @@ std::vector<Variable> ForwardclauseVarList(CONCL_FORWARD_LIST_SIZE, 0);
 //First index is rule number second index is clause number
 int variable_pointer[2] = {};
 
-
+// Variable used as the current variable
 Variable var(0);
 
 //Diagnose Mental Disorder Function (Backward Chaining)
@@ -83,7 +83,8 @@ void diagnoseDisorder()
                 std::cout << "<diagnoseDisorder> variable at calculated index: " << var.get_name() << std::endl;
                 // match up the clause variable that was found0
                 // to the variable in the variable list
-                var = varList[find_var_index(var.get_name(), varList)];
+                if(var.get_name() != "")
+                    var = varList[find_var_index(var.get_name(), varList)];
 
                 std::cout << "<diagnoseDisorder> variable value: " << var.get_str_value() << std::endl;
                 // if the index in the clauseVarList does not go to nothing
@@ -119,10 +120,9 @@ void diagnoseDisorder()
                 statementNum = determine_member_concl_list(var.get_name(), conclusionList, (statementStack.top() + 1));
                 statementStack.pop();
             }
-        } while (!invokeThen && statementNum != 0);
+        } while (!invokeThen && statementNum != -1);
 
-        // TODO:    
-        // implement then condition switch
+        std::cout << "<diagnoseDisorder> calling THEN condition switch on statement number: " << statementNum << std::endl;
         std::string disorder = then_condition_switch(statementNum);
         std::cout << disorder << std::endl;
         /// if statementStack is empty, complete
@@ -130,11 +130,10 @@ void diagnoseDisorder()
         statementStack.pop();
         if(statementStack.empty())
             break;
-        else{
+        else
             statementNum = statementStack.top();
-        } 
     };
-    std::cout << "Disorder found\n";
+    std::cout << "Disorder found.\n";
 }
 
 //Treatment for Disorder Function (Forward Chaining)
@@ -224,6 +223,7 @@ int main() {
     */
     //Start getting symptoms from user
     initialSymptoms();
+    
 
     //After user has entered initial symptoms ask user questions and start diagnoseDisorder()
     init_concl_list_forward(ForwardclauseVarList);
