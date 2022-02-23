@@ -520,8 +520,7 @@ bool if_condition_switch(int statementNum, std::vector<Variable> varList){
 }
 
 std::string then_condition_switch(int statementNum){
-    switch (statementNum)
-    {
+    switch (statementNum){
     case 1:
         return "NONE";
         break;
@@ -529,11 +528,93 @@ std::string then_condition_switch(int statementNum){
     case 2:
         return "YES";
         break;
+
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+    case 7:
+    case 8:
+        return "DISSOCIATIVE IDENTITY";
+        break;
+    case 9:
+    case 11:
+    case 13:
+    case 15:
+    case 17:
+    case 19:
+    case 21:
+    case 23:
+        return "MAJOR DEPRESSICE DISORDER";
+        break;
+
+    case 10:
+    case 12:
+    case 14:
+    case 16:
+    case 18:
+    case 20:
+    case 22:
+    case 24:
+        return "DYSTHYMIA";
+        break;
+
+    case 25:
+    case 26:
+    case 27:
+    case 28:
+    case 29:
+    case 30:
+    case 31:
+    case 32:
+        return "BIPOLAR 1";
+        break;
     
+    case 33:
+    case 35:
+    case 37:
+    case 39:
+    case 41:
+    case 43:
+    case 45:
+    case 47:
+    case 49:
+    case 51:
+        return "GENERALIZED ANXIETY";
+        break;
+
+    case 34:
+    case 36:
+    case 38:
+    case 40:
+    case 42:
+    case 44:
+    case 46:
+    case 48:
+    case 50:
+    case 52:
+        return "PANIC DISORDER WITH AGORAPHOBIA";
+        break;
+
+    case 53:
+    case 55:
+    case 57:
+    case 59:
+    case 61:
+        return "SCHIZOPHRENIA";
+        break;
+
+    case 54:
+    case 56:
+    case 58:
+    case 60:
+    case 62:
+        return "SCHIZOAFFECTIVE";
+        break;
     default:
         break;
     }
-    return "ERROR NOT FOUND";
+    return "ERROR: NOT FOUND";
 }
 
 
