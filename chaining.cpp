@@ -7,7 +7,6 @@
 void instantiate(std::string var, std::vector<Variable> &varList, std::vector<int> &instList) {
     // look for variable in variable list
     int idx = -1;
-    std::cout << "<instantiate> searching for: " << var << std::endl;
     for(int i = 1; i < varList.size(); i++){
         if(var == varList[i].get_name()){
             idx = i;
@@ -17,11 +16,8 @@ void instantiate(std::string var, std::vector<Variable> &varList, std::vector<in
     
     // if variable not found
     if(idx == -1){
-        std::cerr << "variable not found\n";
         return;
     }
-
-    std::cout << "<instantiate> variable found\n";
 
     // if variable has already been instantiated, return
     if(instList[idx] == 1)
@@ -394,12 +390,14 @@ bool if_condition_switch(int statementNum, std::vector<Variable> varList){
                 varList[35].get_str_value() == "NO" && varList[22].get_str_value() == "NO" &&
                 varList[25].get_str_value() == "NO" && varList[26].get_str_value() == "NO" &&
                 varList[23].get_str_value() == "YES" && varList[24].get_str_value() == "NO")
+                return true;
                 break;
         case 46:
             if(varList[2].get_str_value() == "YES" && varList[3].get_str_value() == "NO" &&
                 varList[35].get_str_value() == "NO" && varList[22].get_str_value() == "NO" &&
                 varList[25].get_str_value() == "NO" && varList[26].get_str_value() == "NO" &&
                 varList[23].get_str_value() == "YES" && varList[24].get_str_value() == "YES")
+                return true;
                 break;
         case 47:
             if(varList[2].get_str_value() == "YES" && varList[3].get_str_value() == "NO" &&
@@ -461,6 +459,7 @@ bool if_condition_switch(int statementNum, std::vector<Variable> varList){
                 varList[28].get_str_value() == "NO" && varList[31].get_str_value() == "NO" &&
                 varList[29].get_str_value() == "YES" && varList[12].get_str_value() == "NO" &&
                 varList[30].get_num_value() > 6)
+                return true;
                 break;
         case 56:
             if(varList[2].get_str_value() == "YES" && varList[3].get_str_value() == "YES" &&
@@ -519,13 +518,15 @@ bool if_condition_switch(int statementNum, std::vector<Variable> varList){
     return false;
 }
 
-std::string then_condition_switch(int statementNum){
+std::string then_condition_switch(int statementNum, std::vector<Variable> &varList){
     switch (statementNum){
     case 1:
+        varList[2].set_str_value("NO");
         return "NONE";
         break;
 
     case 2:
+        varList[2].set_str_value("YES");
         return "YES";
         break;
 
