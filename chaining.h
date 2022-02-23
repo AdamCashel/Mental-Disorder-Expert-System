@@ -10,7 +10,7 @@ extern int determine_member_concl_list(std::string, std::vector<Variable>, int =
 
 extern bool if_condition_switch(int,  std::vector<Variable>);
 
-extern std::string then_condition_switch(int);
+extern std::string then_condition_switch(int, std::vector<Variable> &);
 
 extern bool condition_switch_forward(int, std::vector<Variable>);
 
