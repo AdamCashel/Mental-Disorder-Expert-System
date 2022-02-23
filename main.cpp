@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stack>
 #include <queue>
+#include <unistd.h>
 
 #include "initialize.h"
 #include "interface.h"
@@ -47,93 +48,104 @@ int variable_pointer[2] = {};
 // Variable used as the current variable
 Variable var(0);
 
-//Diagnose Mental Disorder Function (Backward Chaining)
-void diagnoseDisorder()
-{   
-    std::string diagnosedDisorder = "";
-    // INITIAL INPUT
-    // promt user for a conclusion to verify
-    std::cout << "Enter Conclusion: \n";
+std::string diagnose_disorder(){
+    std::cout << "ENTER CONCLUSION:\n";
     std::string conclusion; std::cin >> conclusion;
     conclusion = to_upper_case(conclusion);
-    // check if conclusion is valid
-    int statementNum = determine_member_concl_list(conclusion, conclusionList);
-    
-    // if the index is not -1, then the clause was found and is valid
-    while(statementNum != -1){
-        // push the statement number (index) onto the statement stack
-        std::cout << "CONCLUSION FOUND\n";
 
-        bool invokeThen = false;
-        do{
-            statementStack.push(statementNum);
-            // push 1 onto the clause stack
-            // !!! STILL NEED TO FIND OUT WHY !!!
-            // seems to be used as an offset in the clause variable list
-            clauseStack.push(1);
-            do{
-                //
-                // calculate clause var index
-                std::cout << "<diagnoseDisorder> statementStack top: " << statementStack.top() << std::endl;
-                int clauseVarIdx = (statementStack.top() - 1) * 10 + clauseStack.top();
+    // runtime variables
+    int statementNumber;
 
-                std::cout << "<diagnoseDisorder> calculated clause variable index: " << clauseVarIdx << std::endl;
-                
-                var = clauseVarList[clauseVarIdx];
-                std::cout << "<diagnoseDisorder> variable at calculated index: " << var.get_name() << std::endl;
-                // match up the clause variable that was found0
-                // to the variable in the variable list
-                if(var.get_name() != "")
-                    var = varList[find_var_index(var.get_name(), varList)];
+    bool stacksAreEmpty = false;
+    bool invokeThen = false;
+    bool recalculateIndex = false;
+    bool varIsConclusion = false;
 
-                std::cout << "<diagnoseDisorder> variable value: " << var.get_str_value() << std::endl;
-                // if the index in the clauseVarList does not go to nothing
-                if(var.get_name() != ""){
-                    // is the variable a conclusion?
-                    statementNum = determine_member_concl_list(var.get_name(), conclusionList);
-                    if(statementNum != -1){
-                        // variable is a conclusion, push onto stack
-                        statementStack.push(statementNum);
-                        clauseStack.push(1);
-                    }
-                    else {
-                        // instantiate the variable
-                        instantiate(var.get_name(), varList, instantiatedList);
-                        // increate clauseStack top value
-                        clauseStack.top()++;
-                    }
-                }
-            }while(var.get_name() != "");
-            
-            statementNum = statementStack.top();
-            invokeThen = false;
-            
-            // call check on if part of the knowledge base (switch statement)
-            std::cout << "<diagnoseDisorder> calling if condition switch on statement number: " << statementNum << std::endl;
-            invokeThen = if_condition_switch(statementNum, varList);
-            std::cout << std::boolalpha << "<diagnoseDisorder> if condition switch result: " << invokeThen << std::endl; 
-            if(!invokeThen){
-                // did not satify any conditions
-                // get next conclusion in stack
-                int conclVarIdx = statementStack.top();
-                var = conclusionList[conclVarIdx];
-                statementNum = determine_member_concl_list(var.get_name(), conclusionList, (statementStack.top() + 1));
-                statementStack.pop();
+
+    // recalculateIndex is a wrapper used to mimic
+    // the "goto b545" call in line 267 of the example program
+
+    // varIsConclusion is a wrapper used to mimic
+    // the "goto b520" call in line 152 of the example program
+
+    while(!stacksAreEmpty){
+        if(recalculateIndex != true){
+            if(varIsConclusion != true){
+                // determine if conclusion is in conclusion list
+                statementNumber = determine_member_concl_list(conclusion, conclusionList);
             }
-        } while (!invokeThen && statementNum != -1);
+        }
+        // if conclusion found in list
+        if(statementNumber != -1){
+            do{
+                varIsConclusion = false;
 
-        std::cout << "<diagnoseDisorder> calling THEN condition switch on statement number: " << statementNum << std::endl;
-        std::string disorder = then_condition_switch(statementNum);
-        std::cout << disorder << std::endl;
-        /// if statementStack is empty, complete
-        /// else pop next statement number from stack and continue
-        statementStack.pop();
-        if(statementStack.empty())
-            break;
-        else
-            statementNum = statementStack.top();
-    };
-    std::cout << "Disorder found.\n";
+                if(recalculateIndex != true){
+                    statementStack.push(statementNumber);
+                    clauseStack.push(1);
+                }
+                do{
+                    recalculateIndex = false;
+
+                    int clauseIndex = (statementStack.top() - 1) * 10 + clauseStack.top();
+                    var = clauseVarList[clauseIndex];
+                    
+
+                    if(var.get_name() != ""){
+                        // check if variable is a conclusion
+                        // -1 if not a conclusion
+                        statementNumber = determine_member_concl_list(var.get_name(), conclusionList);
+                        if(statementNumber != -1){
+                            // if the variable IS a conclusion
+                            varIsConclusion = true;
+                            break;
+                        }
+                        else {
+                            // if the variable IS NOT a conclusion
+                            instantiate(var.get_name(), varList, instantiatedList);
+                            clauseStack.top()++;
+                        }
+                    }
+
+                }while(var.get_name() != "");
+                
+                if(varIsConclusion)
+                    break;
+
+                statementNumber = statementStack.top();
+                invokeThen = false;
+                invokeThen = if_condition_switch(statementNumber, varList);
+                
+                if(invokeThen == false){
+                    var = conclusionList[statementStack.top()];
+                    statementNumber = determine_member_concl_list(var.get_name(), conclusionList, (statementStack.top() + 1));
+                    
+                    statementStack.pop();
+                    clauseStack.pop();
+                }
+
+            }while(invokeThen == false && statementNumber != -1);
+
+            // used to mimic goto 520
+            if(varIsConclusion)
+                continue;
+
+            if(statementNumber != -1){
+                std::string returnValue = then_condition_switch(statementNumber, varList);
+                statementStack.pop();
+                clauseStack.pop();
+
+                if(statementStack.empty() && clauseStack.empty()){
+                    std::cout << "DONE\n";
+                    stacksAreEmpty = true;
+                    return returnValue;
+                } else {
+                    clauseStack.top()++;
+                    recalculateIndex = true;
+                }
+            }
+        }
+    }
 }
 
 //Treatment for Disorder Function (Forward Chaining)
@@ -222,13 +234,15 @@ int main() {
     print_list(clauseVarList);
     */
     //Start getting symptoms from user
-    initialSymptoms();
+    //initialSymptoms();
     
 
     //After user has entered initial symptoms ask user questions and start diagnoseDisorder()
     init_concl_list_forward(ForwardclauseVarList);
     init_var_list_forward(varListForward);
-    diagnoseDisorder();
+    std::string disorder;
+    disorder = diagnose_disorder();
+    std::cout << "Patient diagnosed with " << disorder << std::endl;
 
     //After getting mental disorder diagnoses call disorderTreatment()
     std::string dummy_disorder = " ";
