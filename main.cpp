@@ -146,6 +146,7 @@ std::string diagnose_disorder(){
             }
         }
     }
+    return "";
 }
 
 //Treatment for Disorder Function (Forward Chaining)
