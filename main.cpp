@@ -30,8 +30,6 @@ std::stack<int> statementStack;
 std::stack<int> clauseStack;
 
 // Forward Chaining Variables
-// clause variable pointer
-int clauseVariablePointer[2] = {};
 // conclusion variable queue
 std::queue<Variable> conclusionQueue;
 
@@ -41,9 +39,13 @@ std::vector<Variable> varListForward(FORWARD_VAR_LIST_SIZE, 0);
 // clause varaible list Forward
 std::vector<Variable> ForwardclauseVarList(CONCL_FORWARD_LIST_SIZE, 0);
 
-// Variable Pointer Array
+// Clause Variable Pointer Array
 //First index is rule number second index is clause number
 int variable_pointer[2] = {};
+
+// initialized to 0 for all variables
+// instantialed list
+std::vector<int> ForwardinstantiatedList(VAR_LIST_SIZE, 0);
 
 // Variable used as the current variable
 Variable var(0);
@@ -156,8 +158,12 @@ void disorderTreatment(std::string disorder_given)
     intro_treatment();
     
     //Take care of patient has been diagnosed with a mental disorder before while
-
+    varListForward[0].get_str_value() = "YES";
+    ForwardinstantiatedList[0] = 1;
     //What kind of disorder was diagnosed before while
+    std::string disorder_type = condition_switch_disordertype(disorder_given);
+    varListForward[1].get_str_value() = "YES";
+    ForwardinstantiatedList[1] = 1;
 
     int current_index = 0;
     std::string search_variable = ""; //Add variable
