@@ -160,12 +160,15 @@ void disorderTreatment(std::string disorder_given)
     //While loop until treatment is found
     int current_index = 0;
     std::string search_variable = ""; //Add variable
+    
     bool treatment_found = false;
     while(!treatment_found)
     {
         //Search for variable in clause variable list and get index location
         int CVL_INDEX = determine_variable_location_CVL(search_variable, ForwardclauseVarList, current_index); 
         //Convert slot number to corresponding rule number by using formula function
+        int rule_num = rule_number_formula(CVL_INDEX);
+        variable_pointer[0] = rule_num;
     }
    
 }
