@@ -154,13 +154,17 @@ void disorderTreatment(std::string disorder_given)
 {
     //Introduction of treatment diagnoses
     intro_treatment();
-    //Check the clause variable list for the first instace for if condtion is present
-    //After finding what clause # its at the # is converted through the equation to the given rule #
     
-    //While loop until treatment is found
+    //Take care of patient has been diagnosed with a mental disorder before while
+
+    //What kind of disorder was diagnosed before while
+
     int current_index = 0;
     std::string search_variable = ""; //Add variable
     
+    //Check the clause variable list for the first instace for if condtion is present
+    //After finding what clause # its at the # is converted through the equation to the given rule #
+    //While loop until treatment is found
     bool treatment_found = false;
     while(!treatment_found)
     {
