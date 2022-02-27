@@ -7,9 +7,9 @@ const int CONCL_LIST_SIZE = 62 + 1;
 const int VAR_LIST_SIZE = 35 + 1;
 
 //Conclusion list and varaibles for forward size
-const int CONCL_FORWARD_LIST_SIZE = 11;
-const int FORWARD_VAR_LIST_SIZE = 10;
-const int FORWARD_CLAUSE_VAR_LIST_SIZE = 113 + 1;
+const int CONCL_FORWARD_LIST_SIZE = 11 + 1;
+const int FORWARD_VAR_LIST_SIZE = 7 + 1;
+const int FORWARD_CLAUSE_VAR_LIST_SIZE = 111 + 1;
 // we have a maximum of 9 variables in our if clauses
 // since we have 17 rules, with at most 9 variables each,
 // the max length of our clause variable list is 153
@@ -70,7 +70,7 @@ void init_var_list_forward(std::vector<Variable> &vector) {
     for(int i = 1; i < FORWARD_VAR_LIST_SIZE; i++){
         getline(inputFile, line);
         vector[i].set_name(line);
-        if(i != 3 && i != 5 && 9)
+        if(i != 3 && i != 4 && i != 6)
             vector[i].set_type(1);
         else
             vector[i].set_type(2);
