@@ -14,7 +14,7 @@ extern std::string then_condition_switch(int, std::vector<Variable> &);
 
 extern bool condition_switch_forward(int, std::vector<Variable>);
 
-extern std::string condition_switch_disordertype(int);
+extern std::string condition_switch_disordertype(std::string);
 
 extern int disordertype_helper(std::string);
 
