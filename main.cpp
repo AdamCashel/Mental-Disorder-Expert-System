@@ -157,30 +157,39 @@ void disorderTreatment(std::string disorder_given)
     //Introduction of treatment diagnoses
     intro_treatment();
     
-    //Take care of patient has been diagnosed with a mental disorder before while
-    varListForward[0].get_str_value() = "YES";
-    ForwardinstantiatedList[0] = 1;
-    //What kind of disorder was diagnosed before while
-    std::string disorder_type = condition_switch_disordertype(disorder_given);
-    varListForward[1].get_str_value() = "YES";
-    ForwardinstantiatedList[1] = 1;
-
-    int current_index = 0;
-    std::string search_variable = ""; //Add variable
-    
-    //Check the clause variable list for the first instace for if condtion is present
-    //After finding what clause # its at the # is converted through the equation to the given rule #
-    //While loop until treatment is found
-    bool treatment_found = false;
-    while(!treatment_found)
+    //Skip Forward chaining no treatment needed
+    if(disorder_given == "NONE")
     {
-        //Search for variable in clause variable list and get index location
-        int CVL_INDEX = determine_variable_location_CVL(search_variable, ForwardclauseVarList, current_index); 
-        //Convert slot number to corresponding rule number by using formula function
-        int rule_num = rule_number_formula(CVL_INDEX);
-        variable_pointer[0] = rule_num;
+        std::cout << "No Treatment needed for Patient" << std::endl;
     }
-   
+    else
+    {
+        //Take care of patient has been diagnosed with a mental disorder before while
+        varListForward[0].get_str_value() = "YES";
+        ForwardinstantiatedList[0] = 1;
+        //What kind of disorder was diagnosed before while
+        std::string disorder_type = condition_switch_disordertype(disorder_given);
+        varListForward[1].get_str_value() = "YES";
+        ForwardinstantiatedList[1] = 1;
+
+        int current_index = 0;
+        std::string search_variable = ""; //Add variable
+    
+        //Check the clause variable list for the first instace for if condtion is present
+        //After finding what clause # its at the # is converted through the equation to the given rule #
+        //While loop until treatment is found
+        bool treatment_found = false;
+        while(!treatment_found)
+        {
+            //Search for variable in clause variable list and get index location
+            int CVL_INDEX = determine_variable_location_CVL(search_variable, ForwardclauseVarList, current_index);
+            variable_pointer[1] = CVL_INDEX; 
+            //Convert slot number to corresponding rule number by using formula function
+            int rule_num = rule_number_formula(CVL_INDEX);
+            variable_pointer[0] = rule_num;
+        }
+    }
+    
 }
 
 //Asks user for the initial symptoms of patient
