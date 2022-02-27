@@ -5,15 +5,17 @@
 // starting index is 1, so we add 1 to size
 const int CONCL_LIST_SIZE = 62 + 1;
 const int VAR_LIST_SIZE = 35 + 1;
-
-//Conclusion list and varaibles for forward size
-const int CONCL_FORWARD_LIST_SIZE = 11 + 1;
-const int FORWARD_VAR_LIST_SIZE = 7 + 1;
-const int FORWARD_CLAUSE_VAR_LIST_SIZE = 111 + 1;
 // we have a maximum of 9 variables in our if clauses
 // since we have 17 rules, with at most 9 variables each,
 // the max length of our clause variable list is 153
 const int CLAUSE_VAR_LIST_SIZE = 620 + 1;
+
+
+//Conclusion list and varaibles for forward size
+const int FORWARD_CONCL_LIST_SIZE = 11 + 1;
+const int FORWARD_VAR_LIST_SIZE = 7 + 1;
+const int FORWARD_CLAUSE_VAR_LIST_SIZE = 111 + 1;
+
 
 // places the values below in the vector of strings passed
 void init_concl_list(std::vector<Variable> &vector) {
@@ -32,7 +34,7 @@ void init_concl_list_forward(std::vector<Variable> &vector) {
     std::ifstream inputFile;
     std::string line;
     inputFile.open("./data/forward-chaining-conclusionlist.txt");
-    for(int i = 1; i < CONCL_FORWARD_LIST_SIZE; i++){
+    for(int i = 1; i < FORWARD_CONCL_LIST_SIZE; i++){
         getline(inputFile, line);
         vector[i].set_name(line);
     }
@@ -112,6 +114,19 @@ void init_clause_var_list_forward(std::vector<Variable> &vector)
     inputFile.close();
 }
 
+void init_responses_forward(std::vector<std::string> &vector)
+{
+    std::ifstream inputFile;
+    std::string line;
+
+    inputFile.open("./data/forward-chaining-responses.txt");
+    for(int i = 1; i < FORWARD_CONCL_LIST_SIZE; i++){
+        getline(inputFile, line);
+        vector[i] = line;
+    }
+    inputFile.close();
+}
+
 //Formula used to get clause number output by rule number input (Backward Chaining)
 int clause_number_formula(int rule_numb)
 {
@@ -122,7 +137,7 @@ int clause_number_formula(int rule_numb)
 //Formula to get rule number output by clause number input (Forward Chaining)
 int rule_number_formula(int clause_numb)
 {
-    int rule_temp = ((clause_numb / 10)) * 10;
+    int rule_temp = ((clause_numb / 10) + 1) * 10;
     return rule_temp;
 } 
 

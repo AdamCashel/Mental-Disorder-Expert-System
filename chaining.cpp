@@ -622,58 +622,58 @@ std::string then_condition_switch(int statementNum, std::vector<Variable> &varLi
 bool condition_switch_forward(int statementNum, std::vector<Variable> varList)
 {
     switch(statementNum){
-        case 1:
+        case 10:
             if(varList[1].get_str_value() == "NO")
                 return true;
             break;
-        case 2:
-            if(varList[1].get_str_value() == "YES" && varList[2].get_str_value() == "YES" &&
+        case 20:
+            if(varList[1].get_str_value() == "YES" && varList[2].get_str_value() == "ANXIETY" &&
                 varList[3].get_num_value() >= 3)
                 return true;
             break;
-        case 3:
-            if(varList[1].get_str_value() == "YES" && varList[2].get_str_value() == "YES" &&
+        case 30:
+            if(varList[1].get_str_value() == "YES" && varList[2].get_str_value() == "ANXIETY" &&
                 varList[3].get_num_value() < 3)
                 return true;
             break;
-        case 4:
-            if(varList[1].get_str_value() == "YES" && varList[4].get_str_value() == "YES" &&
-                varList[5].get_num_value() > 6)
+        case 40:
+            if(varList[1].get_str_value() == "YES" && varList[2].get_str_value() == "PSYCHOTIC" &&
+                varList[4].get_num_value() > 6)
                 return true;
             break;
-        case 5:
-            if(varList[1].get_str_value() == "YES" && varList[4].get_str_value() == "YES" &&
-                varList[5].get_num_value() < 6)
+        case 50:
+            if(varList[1].get_str_value() == "YES" && varList[2].get_str_value() == "PSYCHOTIC" &&
+                varList[4].get_num_value() < 6)
                 return true;
             break;
-        case 6:
-            if(varList[1].get_str_value() == "YES" && varList[6].get_str_value() == "YES" && 
-                varList[7].get_str_value() == "NO")
+        case 60:
+            if(varList[1].get_str_value() == "YES" && varList[2].get_str_value() == "PERSONALITY" && 
+                varList[5].get_str_value() == "NO")
                 return true;
             break;
-        case 7:
-            if(varList[1].get_str_value() == "YES" && varList[6].get_str_value() == "YES" &&
+        case 70:
+            if(varList[1].get_str_value() == "YES" && varList[2].get_str_value() == "PERSONALITY" &&
                 varList[7].get_str_value() == "YES")
                 return true;
             break;
-        case 8:
-            if(varList[1].get_str_value() == "YES" && varList[8].get_str_value() == "YES" &&
-                varList[9].get_num_value() > 10)
+        case 80:
+            if(varList[1].get_str_value() == "YES" && varList[2].get_str_value() == "MOOD" &&
+                varList[6].get_num_value() > 10)
                 return true;
             break;
-        case 9:
-            if(varList[1].get_str_value() == "YES" && varList[8].get_str_value() == "YES" &&
-                10 > varList[9].get_num_value() >= 1)
+        case 90:
+            if(varList[1].get_str_value() == "YES" && varList[2].get_str_value() == "MOOD" &&
+                10 > varList[6].get_num_value() && varList[6].get_num_value() >= 1)
                 return true;
             break;
-        case 10:
-            if(varList[1].get_str_value() == "YES" && varList[8].get_str_value() == "YES" &&
-                varList[9].get_num_value() == 0 && varList[10].get_str_value() == "YES")
+        case 100:
+            if(varList[1].get_str_value() == "YES" && varList[2].get_str_value() == "MOOD" &&
+                varList[6].get_num_value() == 0 && varList[7].get_str_value() == "YES")
                 return true;
             break;
-        case 11:
-            if(varList[1].get_str_value() == "YES" && varList[8].get_str_value() == "YES" &&
-                varList[9].get_num_value() == 0 && varList[10].get_str_value() == "YES")
+        case 110:
+            if(varList[1].get_str_value() == "YES" && varList[2].get_str_value() == "MOOD" &&
+                varList[6].get_num_value() == 0 && varList[7].get_str_value() == "NO")
                 return true;
             break;
         default:

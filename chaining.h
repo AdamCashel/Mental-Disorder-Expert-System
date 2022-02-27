@@ -18,4 +18,4 @@ extern std::string condition_switch_disordertype(std::string);
 
 extern int disordertype_helper(std::string);
 
-extern int determine_variable_location_CVL(std::string, std::vector<Variable>, int);
+extern int determine_variable_location_CVL(std::string, std::vector<Variable>, int = 1);

@@ -12,6 +12,16 @@ void print_list(std::vector<Variable> vector){
     }
 }
 
+void print_list_values(std::vector<Variable> vector){
+    for(int i = 1; i < vector.size(); i++){
+        if(vector[i].get_type() == 1){
+            printf("NAME: %s VALUE: %s\n", vector[i].get_name().c_str(), vector[i].get_str_value().c_str());
+        } else {
+            printf("NAME: %s VALUE: %.2f\n ", vector[i].get_name().c_str(), vector[i].get_num_value());
+        }
+    }
+}
+
 extern void intro_directions()
 {
     std::cout << "========================================================================================" <<std::endl;

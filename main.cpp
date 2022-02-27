@@ -34,10 +34,10 @@ std::stack<int> clauseStack;
 std::queue<Variable> conclusionQueue;
 
 //Varaible List Forward
-std::vector<Variable> varListForward(FORWARD_VAR_LIST_SIZE, 0);
+std::vector<Variable> forwardVarList(FORWARD_VAR_LIST_SIZE, 0);
 
 // clause varaible list Forward
-std::vector<Variable> ForwardclauseVarList(CONCL_FORWARD_LIST_SIZE, 0);
+std::vector<Variable> forwardClauseVarList(FORWARD_CLAUSE_VAR_LIST_SIZE, 0);
 
 // Clause Variable Pointer Array
 //First index is rule number second index is clause number
@@ -45,7 +45,9 @@ int variable_pointer[2] = {};
 
 // initialized to 0 for all variables
 // instantialed list
-std::vector<int> ForwardinstantiatedList(VAR_LIST_SIZE, 0);
+std::vector<int> forwardInstantiatedList(FORWARD_VAR_LIST_SIZE, 0);
+
+std::vector<std::string> forwardResponses(FORWARD_CONCL_LIST_SIZE);
 
 // Variable used as the current variable
 Variable var(0);
@@ -165,70 +167,54 @@ void disorderTreatment(std::string disorder_given)
     else
     {
         //Take care of patient has been diagnosed with a mental disorder before while
-        varListForward[0].get_str_value() = "YES";
-        ForwardinstantiatedList[0] = 1;
+        forwardVarList[1].set_str_value("YES");
+        forwardInstantiatedList[1] = 1;
         //What kind of disorder was diagnosed before while
         std::string disorder_type = condition_switch_disordertype(disorder_given);
-        varListForward[1].get_str_value() = "YES";
-        ForwardinstantiatedList[1] = 1;
+        forwardVarList[2].set_str_value(disorder_type);
+        forwardInstantiatedList[2] = 1;
 
-        int current_index = 0;
-        std::string search_variable = ""; //Add variable
+        std::string search_variable = "DIAGNOSED"; //Add variable
     
         //Check the clause variable list for the first instace for if condtion is present
         //After finding what clause # its at the # is converted through the equation to the given rule #
         //While loop until treatment is found
         bool treatment_found = false;
-        while(!treatment_found)
-        {
-            //Search for variable in clause variable list and get index location
-            int CVL_INDEX = determine_variable_location_CVL(search_variable, ForwardclauseVarList, current_index);
-            variable_pointer[1] = CVL_INDEX; 
-            //Convert slot number to corresponding rule number by using formula function
-            int rule_num = rule_number_formula(CVL_INDEX);
-            variable_pointer[0] = rule_num;
-        }
-    }
-    
-}
 
-//Asks user for the initial symptoms of patient
-void initialSymptoms()
-{
-    std::string user_answer = "";
-    intro_directions();
-    std::cout << "Do you have any symptoms of the patient? (y/n)" <<std::endl;
-    getline(std::cin, user_answer);
-    user_answer = to_upper_case(user_answer);
-    if(user_answer == "Y")
-    {
-        std::cout << "Enter symptoms of the patient already obtained. Press 's' to stop" << std::endl;
-        while(user_answer != "S")
-        {
-            std::cout << "Enter Patient Symptom" << std::endl;
-            getline(std::cin, user_answer);
-            user_answer = to_upper_case(user_answer);
-            bool found = false;
-            int i = 0;
-            while(!found && i < VAR_LIST_SIZE)
-            {
-                if(user_answer == varList[i].get_name())
-                {
-                    found = true;
-                    if(varList[i].get_type() == 2)
-                    {
-                         std::cout << "Enter Value for " << user_answer << std::endl;
-                         getline(std::cin, user_answer);
-                         varList[i].set_str_value(user_answer);
-                         instantiatedList[i] = 1;
-                    }
-                    std::cout << user_answer << " was found in symptom list" << std::endl;
-                }
-                i++;
+        while(!treatment_found){
+            //Search for variable in clause variable list and get index location
+            int CVL_INDEX = determine_variable_location_CVL(search_variable, forwardClauseVarList, variable_pointer[1] + 1);
+
+            if(CVL_INDEX == -1){
+                std::cout << "ERROR: Treatment knowledge base does not contain this.\n";
+                return;
             }
-            if(found == false)
-            {
-                std::cout << user_answer << " not found" << std::endl;
+
+            variable_pointer[1] = CVL_INDEX;
+
+            do{
+
+                // Convert slot number to corresponding rule number by using formula function
+                int rule_num = rule_number_formula(variable_pointer[1]);
+                variable_pointer[0] = rule_num;
+                variable_pointer[1]++;
+
+                CVL_INDEX = variable_pointer[1];
+
+                var = forwardClauseVarList[CVL_INDEX];
+
+                if(var.get_name() != ""){
+                    instantiate(var.get_name(), forwardVarList, forwardInstantiatedList);
+                }
+
+            }while(var.get_name() != "");
+
+
+            treatment_found = condition_switch_forward(variable_pointer[0], forwardVarList);
+            if(treatment_found){
+
+                std::cout << "TREATMENT:\n";
+                std::cout << forwardResponses[variable_pointer[0] / 10] << std::endl;
             }
         }
     }
@@ -242,7 +228,6 @@ int main() {
     init_clause_var_list(clauseVarList);
 
     // display values for user to see
-    /*
     std::cout << "CONCLUSION LIST\n";
     print_list(conclusionList);
 
@@ -253,23 +238,16 @@ int main() {
 
     std::cout << std::endl;
 
-    std::cout << "CLAUSE VARIABLE LIST\n";
-    print_list(clauseVarList);
-    */
-    //Start getting symptoms from user
-    //initialSymptoms();
-    
-
     //After user has entered initial symptoms ask user questions and start diagnoseDisorder()
-    init_concl_list_forward(ForwardclauseVarList);
-    init_var_list_forward(varListForward);
+    init_clause_var_list_forward(forwardClauseVarList);
+    init_var_list_forward(forwardVarList);
+    init_responses_forward(forwardResponses);
     std::string disorder;
     disorder = diagnose_disorder();
     std::cout << "Patient diagnosed with " << disorder << std::endl;
 
     //After getting mental disorder diagnoses call disorderTreatment()
-    std::string dummy_disorder = " ";
-    disorderTreatment(dummy_disorder);
+    disorderTreatment(disorder);
 
     //End of Program
     end_message();

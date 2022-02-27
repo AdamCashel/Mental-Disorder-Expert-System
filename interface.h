@@ -6,6 +6,8 @@ extern void print_list(std::vector<std::string>);
 
 extern void print_list(std::vector<Variable>);
 
+extern void print_list_values(std::vector<Variable>);
+
 extern void intro_directions();
 
 extern void intro_treatment();
