@@ -546,7 +546,7 @@ std::string then_condition_switch(int statementNum, std::vector<Variable> &varLi
     case 19:
     case 21:
     case 23:
-        return "MAJOR DEPRESSICE DISORDER";
+        return "MAJOR DEPRESSIVE DISORDER";
         break;
 
     case 10:
