@@ -226,6 +226,8 @@ int main() {
     init_concl_list(conclusionList);
     init_var_list(varList);
     init_clause_var_list(clauseVarList);
+    
+    
 
     // display values for user to see
     std::cout << "CONCLUSION LIST\n";
@@ -237,6 +239,9 @@ int main() {
     print_list(varList);
 
     std::cout << std::endl;
+
+    // display how to use program
+    intro_directions();
 
     //After user has entered initial symptoms ask user questions and start diagnoseDisorder()
     init_clause_var_list_forward(forwardClauseVarList);
